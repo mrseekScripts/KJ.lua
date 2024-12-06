@@ -2055,7 +2055,7 @@ local cframeValues = {
 
 }
 
-local duration = 0
+local duration = 30
 
 
 local function tweenCFrame(targetCFrame, tweenDuration)
