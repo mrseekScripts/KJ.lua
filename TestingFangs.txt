@@ -1,0 +1,2431 @@
+elseif v899 == "Claw Effects" then
+        local l_char_11 = v898.char;
+        local _ = v898.hit;
+        local l_id_7 = v898.id;
+        local v4012 = nil;
+        local l_PrimaryPart_26 = l_char_11.PrimaryPart;
+        local v4014 = {};
+        local l_Claw_0 = game.ReplicatedStorage.Resources.Claw;
+        local v4016, v4017 = v873(l_Claw_0, v4014, 8);
+        local l_TweenService_8 = game:GetService("TweenService");
+        local l_Thrown_9 = workspace.Thrown;
+        local l_wait_6 = task.wait;
+        local v4021 = Random.new();
+        for _, v4023 in pairs(l_char_11.Humanoid:GetPlayingAnimationTracks()) do
+            if not (v4023.Animation.AnimationId ~= l_id_7) or v4023.Animation.AnimationId == "rbxassetid://" .. l_id_7 then
+                v4012 = v4023;
+                break;
+            end;
+        end;
+        local _ = function()
+            local _, v4025, _ = l_char_11.HumanoidRootPart.CFrame:ToOrientation();
+            return CFrame.new(l_char_11.Torso.Position) * CFrame.Angles(0, v4025, 0);
+        end;
+        local v4028 = {
+            CFrame.new(-0.681274414, -0.00341796875, -5.6879425, -0.0565820038, -1.90045348E-8, -0.998397946, -5.32785194E-9, 1, -1.87330862E-8, 0.998397946, 4.25936131E-9, -0.0565820038), 
+            CFrame.new(-0.681274414, -0.00341796875, -5.6879425, -0.0565820038, -1.90045348E-8, -0.998397946, -5.32785194E-9, 1, -1.87330862E-8, 0.998397946, 4.25936131E-9, -0.0565820038), 
+            CFrame.new(-0.123588562, -0.57019043, -5.10148621, -1, -1.04749795E-7, -1.07288361E-6, -1.04749816E-7, 1, 2.30172112E-8, 1.07288361E-6, 2.30173303E-8, -1), 
+            CFrame.new(-0.520149231, 0.283294678, -6.25305176, -1, -9.97793208E-8, -5.96046448E-7, -9.97793279E-8, 1, 2.19046328E-8, 5.96046448E-7, 2.19046932E-8, -1), 
+            CFrame.new(-0.52015686, -0.740966797, -5.22492218, -1, -8.23651618E-8, -5.96046448E-7, -8.23651689E-8, 1, 1.80769337E-8, 5.96046448E-7, 1.80769817E-8, -1), 
+            CFrame.new(-0.752059937, -0.608215332, -6.43431854, -1, -5.26426298E-8, -5.96046448E-7, -5.26426369E-8, 1, 1.15525634E-8, 5.96046448E-7, 1.15525935E-8, -1), 
+            CFrame.new(-0.752059937, -0.608215332, -6.43431854, -1, -5.26426298E-8, -5.96046448E-7, -5.26426369E-8, 1, 1.15525634E-8, 5.96046448E-7, 1.15525935E-8, -1), 
+            CFrame.new(-0.752059937, -0.608215332, -6.43431854, -1, -5.26426298E-8, -5.96046448E-7, -5.26426369E-8, 1, 1.15525634E-8, 5.96046448E-7, 1.15525935E-8, -1), 
+            CFrame.new(-0.135482788, -0.372070312, -5.458992, -1, -2.45717118E-8, -5.96046448E-7, -2.45717153E-8, 1, 5.39214451E-9, 5.96046448E-7, 5.39215783E-9, -1), 
+            CFrame.new(0.0779037476, -1.07763672, -4.82855225, -1, -9.72527481E-9, -5.96046448E-7, -9.72527658E-9, 1, 2.13410378E-9, 5.96046448E-7, 2.13410933E-9, -1), 
+            CFrame.new(0.181610107, -0.127929688, -5.86321259, -1, 2.32240644E-8, -5.96046448E-7, 2.3224068E-8, 1, -5.09642906E-9, 5.96046448E-7, -5.09644327E-9, -1), 
+            CFrame.new(0.181549072, -0.659301758, -5.72239685, -1, 5.92318479E-8, -5.96046448E-7, 5.92318585E-8, 1, -1.29980577E-8, 5.96046448E-7, -1.29980959E-8, -1), 
+            CFrame.new(0.181556702, -0.467529297, -5.35212708, -1, 1.05984128E-7, -5.96046448E-7, 1.05984135E-7, 1, -2.32573605E-8, 5.96046448E-7, -2.32574191E-8, -1), 
+            CFrame.new(0.181549072, -0.61895752, -5.49699402, -1, 5.10067331E-8, -5.96046448E-7, 5.10067366E-8, 1, -1.11928955E-8, 5.96046448E-7, -1.11929248E-8, -1), 
+            CFrame.new(0.181556702, -0.293670654, -5.82006073, -1, -1.1433837E-8, -5.96046448E-7, -1.14338379E-8, 1, 2.50907473E-9, 5.96046448E-7, 2.50908161E-9, -1)
+        };
+        local v4029 = 0;
+        do
+            local l_v4012_0, l_v4029_0 = v4012, v4029;
+            local function _()
+                l_v4029_0 = l_v4029_0 + 1;
+                return l_char_11.HumanoidRootPart.CFrame * v4028[l_v4029_0];
+            end;
+            local v4033 = {
+                "rbxassetid://14127444698", 
+                "rbxassetid://14127393320", 
+                "rbxassetid://14127393204", 
+                "rbxassetid://14127393113", 
+                "rbxassetid://14127392987", 
+                "rbxassetid://14127392831", 
+                "rbxassetid://14127392695", 
+                "rbxassetid://14127392572", 
+                "rbxassetid://14127392433", 
+                "rbxassetid://14127392308", 
+                "rbxassetid://14127448226", 
+                "rbxassetid://14127392018", 
+                "rbxassetid://14127391892"
+            };
+            local function _(v4034)
+                local v4035 = v4017._maid:give(v4016.Cone:Clone());
+                v4035.CFrame = v4034;
+                v4035.Parent = l_Thrown_9;
+                for v4036 = 1, #v4033, 2 do
+                    v4035.Decal.Texture = v4033[v4036];
+                    task.wait(0.2 / #v4033);
+                end;
+            end;
+            local v4038 = nil;
+            local v4039 = nil;
+            if not v898.second then
+                v4038 = Instance.new("BodyVelocity");
+                v4039 = function(_, v4041)
+                    if l_char_11 ~= l_LocalPlayer_0.Character then
+                        return ;
+                    else
+                        v4038:SetAttribute("Speed", v4041 or 60);
+                        return ;
+                    end;
+                end;
+                v4038.Name = "moveme";
+                v4038.MaxForce = Vector3.new(1, 0, 1, 0) * 40000;
+                v4038:SetAttribute("Speed", 200);
+                v4038:SetAttribute("Goto", 5);
+                v4038:SetAttribute("End", 1);
+                v4038:SetAttribute("Fallout", 0.9);
+                task.delay(3.2, function()
+                    v4038:Destroy();
+                end);
+                local l_BodyVelocity_2 = l_PrimaryPart_26:FindFirstChildOfClass("BodyVelocity");
+                if l_BodyVelocity_2 then
+                    l_BodyVelocity_2:Destroy();
+                end;
+                v4038.Parent = l_PrimaryPart_26;
+            end;
+            local function v4050(v4043, v4044, v4045, v4046, _)
+                local v4048 = l_PrimaryPart_26.CFrame * v4043 * CFrame.new(0, 0, 0) * CFrame.Angles(0, 1.5707963267948966, 0);
+                local v4049 = v10.new("Cone", v10.SlashWind0, l_PrimaryPart_26, v4048, v4046, v4044);
+                v4049:Play(v4045);
+                v4049:TweenCFrame(v4048 * CFrame.Angles(0, math.rad(76), 0), TweenInfo.new(v4045));
+            end;
+            local function v4064()
+                local v4051 = CFrame.new(1, 0, -1);
+                local v4052, v4053, _ = l_char_11.HumanoidRootPart.CFrame:ToOrientation();
+                local v4055 = CFrame.new(l_char_11.Torso.Position) * CFrame.Angles(0, v4053, 0) * CFrame.new(v4021:NextNumber(-2, 2), 0, v4021:NextNumber(-2, 2)) * v4051;
+                l_v4029_0 = l_v4029_0 + 1;
+                local v4056 = l_char_11.HumanoidRootPart.CFrame * v4028[l_v4029_0] * CFrame.new(v4021:NextNumber(-2, 2), 0, v4021:NextNumber(-2, 2)) * v4051;
+                local l_v819_4 = v819;
+                v4052 = {
+                    FX = v4016.Slashes
+                };
+                local v4058, v4059, v4060 = l_char_11.HumanoidRootPart.CFrame:ToOrientation();
+                v4052.Anchor = CFrame.new(l_char_11.Torso.Position) * CFrame.Angles(0, v4059, 0) * CFrame.new(0, v4021:NextNumber(-7, -5), v4021:NextNumber(-3, 1));
+                v4052.Maid = v4017._maid;
+                l_v819_4 = l_v819_4(v4052);
+                v833(l_v819_4);
+                for v4061 = 1, 3 do
+                    v4058 = v4055 * CFrame.new(0, v4061, 0).Position;
+                    v4059 = v4056 * CFrame.new(0, v4061, 0).Position;
+                    v4060 = v4017._maid:give(v4016.ShardSphere:Clone());
+                    v4060.CFrame = CFrame.new(v4058, v4059) * CFrame.Angles(0, 0, 0);
+                    v4060.Parent = l_Thrown_9;
+                    v4060.Color = Color3.fromRGB(100, 87, 171);
+                    local v4062 = v4021:NextNumber(0.5, 0.7) * 2;
+                    v4060.Size = Vector3.new(0.2, v4062, v4062);
+                    local v4063 = (v4058 - v4059).Magnitude * 5;
+                    l_TweenService_8:Create(v4060, TweenInfo.new(0.2, Enum.EasingStyle.Sine), {
+                        Size = Vector3.new(v4063, 0, 0)
+                    }):Play();
+                    game.Debris:AddItem(v4060, 0.2);
+                end;
+            end;
+            local function v4065(v4066, v4067, v4068, v4069)
+                if not l_v4012_0.IsPlaying and v4038 then
+                    v4038:Destroy();
+                end;
+                if v4039 then
+                    v4039(nil, 65);
+                end;
+                if not v4069 then
+                    v4065(v4066 * CFrame.new(0, 0, -0) * CFrame.Angles(math.rad((v4021:NextNumber(-15, 15))), 0, 0), v4067 * v4021:NextNumber(1.5, 2), v4068 * 1.1, true);
+                    v4064();
+                    local v4070 = v4016.ForwardWave:Clone();
+                    v4070:ScaleTo(v4021:NextNumber(0.15, 0.25));
+                    local v4071 = {
+                        Model = v4070, 
+                        EndT = 1, 
+                        Anchor = l_PrimaryPart_26.CFrame * v4066 * CFrame.Angles(0, -1.5707963267948966, 0), 
+                        Info = TweenInfo.new(0.07, Enum.EasingStyle.Sine)
+                    };
+                    local l_v4071_0 = v4071 --[[ copy: 5 -> 16 ]];
+                    task.spawn(function()
+                        local l_Model_84 = l_v4071_0.Model;
+                        local v4074 = l_v4071_0.Info or TweenInfo.new(1, Enum.EasingStyle.Sine);
+                        local l_Start_88 = l_Model_84:FindFirstChild("Start");
+                        local l_End_86 = l_Model_84:FindFirstChild("End");
+                        local l_Stay_83 = l_v4071_0.Stay;
+                        local l_Anchor_84 = l_v4071_0.Anchor;
+                        local v4079 = l_v4071_0.EndT or 1;
+                        local l_Del_83 = l_v4071_0.Del;
+                        local l_Skip_83 = l_v4071_0.Skip;
+                        if l_Start_88 and l_End_86 then
+                            l_Model_84.PrimaryPart = l_Start_88;
+                            if not l_Skip_83 then
+                                for _, v4083 in pairs(l_Model_84:GetChildren()) do
+                                    if v4083:IsA("BasePart") then
+                                        v4083.CanCollide = false;
+                                        v4083.Anchored = true;
+                                    end;
+                                end;
+                            end;
+                            if l_Anchor_84 then
+                                l_Model_84:SetPrimaryPartCFrame(l_Anchor_84);
+                            end;
+                            if l_v4071_0.T then
+                                l_Start_88.Transparency = l_v4071_0.T;
+                            end;
+                            l_End_86.Transparency = 1;
+                            l_Model_84.Parent = workspace.Thrown;
+                            local l_Decal_167 = l_Start_88:FindFirstChildOfClass("Decal");
+                            local l_SpecialMesh_168 = l_Start_88:FindFirstChildOfClass("SpecialMesh");
+                            local l_SpecialMesh_169 = l_End_86:FindFirstChildOfClass("SpecialMesh");
+                            local l_Decal_168 = l_End_86:FindFirstChildOfClass("Decal");
+                            if l_Decal_168 and not l_Skip_83 then
+                                l_Decal_168.Transparency = 1;
+                            end;
+                            local v4088 = nil;
+                            if l_Del_83 then
+                                game:GetService("TweenService"):Create(l_Start_88, v4074, {
+                                    Size = l_End_86.Size, 
+                                    CFrame = l_End_86.CFrame
+                                }):Play();
+                                task.delay(l_Del_83, function()
+                                    v4088 = game:GetService("TweenService"):Create(l_Start_88, v4074, {
+                                        Transparency = v4079
+                                    });
+                                    v4088:Play();
+                                    if l_Decal_167 then
+                                        for _, v4090 in pairs(l_Start_88:GetChildren()) do
+                                            if v4090:IsA("Decal") then
+                                                game:GetService("TweenService"):Create(v4090, v4074, {
+                                                    Transparency = v4079
+                                                }):Play();
+                                            end;
+                                        end;
+                                    end;
+                                    if l_SpecialMesh_168 then
+                                        v4088 = game:GetService("TweenService"):Create(l_SpecialMesh_168, v4074, {
+                                            Scale = l_SpecialMesh_169.Scale
+                                        }):Play();
+                                    end;
+                                end);
+                            else
+                                if l_SpecialMesh_168 then
+                                    game:GetService("TweenService"):Create(l_SpecialMesh_168, v4074, {
+                                        Scale = l_SpecialMesh_169.Scale
+                                    }):Play();
+                                end;
+                                if l_Decal_167 then
+                                    for _, v4092 in pairs(l_Start_88:GetChildren()) do
+                                        if v4092:IsA("Decal") then
+                                            game:GetService("TweenService"):Create(v4092, v4074, {
+                                                Transparency = v4079
+                                            }):Play();
+                                        end;
+                                    end;
+                                    v4088 = game:GetService("TweenService"):Create(l_Start_88, v4074, {
+                                        Size = l_End_86.Size, 
+                                        CFrame = l_End_86.CFrame
+                                    });
+                                    v4088:Play();
+                                else
+                                    v4088 = game:GetService("TweenService"):Create(l_Start_88, v4074, {
+                                        Size = l_End_86.Size, 
+                                        Transparency = v4079, 
+                                        CFrame = l_End_86.CFrame
+                                    });
+                                    v4088:Play();
+                                end;
+                            end;
+                              if not l_Stay_83 then
+                                if l_Del_83 then
+                                    task.wait(l_Del_83 + 0.1);
+                                end;
+                                v4088.Completed:Connect(function()
+                                    l_Model_84:Destroy();
+                                end);
+                            end;
+                            return ;
+                        else
+                            warn("NO START OR END");
+                            return ;
+                        end;
+                    end);
+                    v4071 = v4016.TestWind3:Clone();
+                    v4071:ScaleTo(v4021:NextNumber(0.35, 0.45));
+                    local v4093 = {
+                        Model = v4071, 
+                        EndT = 1
+                    };
+                    local _, v4095, v4096 = l_char_11.HumanoidRootPart.CFrame:ToOrientation();
+                    v4093.Anchor = CFrame.new(l_char_11.Torso.Position) * CFrame.Angles(0, v4095, 0) * CFrame.new(0, 0, -4) * CFrame.Angles(0, -1.5707963267948966, 0) * CFrame.Angles(math.rad((math.random(0, 360))), 0, 0);
+                    v4093.Info = TweenInfo.new(0.2, Enum.EasingStyle.Sine);
+                    local l_v4093_0 = v4093 --[[ copy: 6 -> 17 ]];
+                    task.spawn(function()
+                        local l_Model_85 = l_v4093_0.Model;
+                        local v4099 = l_v4093_0.Info or TweenInfo.new(1, Enum.EasingStyle.Sine);
+                        local l_Start_89 = l_Model_85:FindFirstChild("Start");
+                        local l_End_87 = l_Model_85:FindFirstChild("End");
+                        local l_Stay_84 = l_v4093_0.Stay;
+                        local l_Anchor_85 = l_v4093_0.Anchor;
+                        local v4104 = l_v4093_0.EndT or 1;
+                        local l_Del_84 = l_v4093_0.Del;
+                        local l_Skip_84 = l_v4093_0.Skip;
+                        if l_Start_89 and l_End_87 then
+                            l_Model_85.PrimaryPart = l_Start_89;
+                            if not l_Skip_84 then
+                                for _, v4108 in pairs(l_Model_85:GetChildren()) do
+                                    if v4108:IsA("BasePart") then
+                                        v4108.CanCollide = false;
+                                        v4108.Anchored = true;
+                                    end;
+                                end;
+                            end;
+                            if l_Anchor_85 then
+                                l_Model_85:SetPrimaryPartCFrame(l_Anchor_85);
+                            end;
+                            if l_v4093_0.T then
+                                l_Start_89.Transparency = l_v4093_0.T;
+                            end;
+                            l_End_87.Transparency = 1;
+                            l_Model_85.Parent = workspace.Thrown;
+                            local l_Decal_169 = l_Start_89:FindFirstChildOfClass("Decal");
+                            local l_SpecialMesh_170 = l_Start_89:FindFirstChildOfClass("SpecialMesh");
+                            local l_SpecialMesh_171 = l_End_87:FindFirstChildOfClass("SpecialMesh");
+                            local l_Decal_170 = l_End_87:FindFirstChildOfClass("Decal");
+                            if l_Decal_170 and not l_Skip_84 then
+                                l_Decal_170.Transparency = 1;
+                            end;
+                            local v4113 = nil;
+                            if l_Del_84 then
+                                game:GetService("TweenService"):Create(l_Start_89, v4099, {
+                                    Size = l_End_87.Size, 
+                                    CFrame = l_End_87.CFrame
+                                }):Play();
+                                task.delay(l_Del_84, function()
+                                    v4113 = game:GetService("TweenService"):Create(l_Start_89, v4099, {
+                                        Transparency = v4104
+                                    });
+                                    v4113:Play();
+                                    if l_Decal_169 then
+                                        for _, v4115 in pairs(l_Start_89:GetChildren()) do
+                                            if v4115:IsA("Decal") then
+                                                game:GetService("TweenService"):Create(v4115, v4099, {
+                                                    Transparency = v4104
+                                                }):Play();
+                                            end;
+                                        end;
+                                    end;
+                                    if l_SpecialMesh_170 then
+                                        v4113 = game:GetService("TweenService"):Create(l_SpecialMesh_170, v4099, {
+                                            Scale = l_SpecialMesh_171.Scale
+                                        }):Play();
+                                    end;
+                                end);
+                            else
+                                if l_SpecialMesh_170 then
+                                    game:GetService("TweenService"):Create(l_SpecialMesh_170, v4099, {
+                                        Scale = l_SpecialMesh_171.Scale
+                                    }):Play();
+                                end;
+                                if l_Decal_169 then
+                                    for _, v4117 in pairs(l_Start_89:GetChildren()) do
+                                        if v4117:IsA("Decal") then
+                                            game:GetService("TweenService"):Create(v4117, v4099, {
+                                                Transparency = v4104
+                                            }):Play();
+                                        end;
+                                    end;
+                                    v4113 = game:GetService("TweenService"):Create(l_Start_89, v4099, {
+                                        Size = l_End_87.Size, 
+                                        CFrame = l_End_87.CFrame
+                                    });
+                                    v4113:Play();
+                                else
+                                    v4113 = game:GetService("TweenService"):Create(l_Start_89, v4099, {
+                                        Size = l_End_87.Size, 
+                                        Transparency = v4104, 
+                                        CFrame = l_End_87.CFrame
+                                    });
+                                    v4113:Play();
+                                end;
+                            end;
+                            if not l_Stay_84 then
+                                if l_Del_84 then
+                                    task.wait(l_Del_84 + 0.1);
+                                end;
+                                v4113.Completed:Connect(function()
+                                    l_Model_85:Destroy();
+                                end);
+                            end;
+                            return ;
+                        else
+                            warn("NO START OR END");
+                            return ;
+                        end;
+                    end);
+                    v4093 = v4016.TestWind3:Clone();
+                    v4093:ScaleTo(v4021:NextNumber(0.35, 0.45));
+                    local v4118 = {
+                        Model = v4093, 
+                        EndT = 1
+                    };
+                    local v4119;
+                    v4095, v4096, v4119 = l_char_11.HumanoidRootPart.CFrame:ToOrientation();
+                    v4118.Anchor = CFrame.new(l_char_11.Torso.Position) * CFrame.Angles(0, v4096, 0) * CFrame.new(0, 0, -4) * CFrame.Angles(0, -1.5707963267948966, 0) * CFrame.Angles(math.rad((math.random(0, 360))), 0, 0);
+                    v4118.Info = TweenInfo.new(0.7, Enum.EasingStyle.Exponential);
+                    local l_v4118_0 = v4118 --[[ copy: 7 -> 18 ]];
+                    task.spawn(function()
+                        local l_Model_86 = l_v4118_0.Model;
+                        local v4122 = l_v4118_0.Info or TweenInfo.new(1, Enum.EasingStyle.Sine);
+                        local l_Start_90 = l_Model_86:FindFirstChild("Start");
+                        local l_End_88 = l_Model_86:FindFirstChild("End");
+                        local l_Stay_85 = l_v4118_0.Stay;
+                        local l_Anchor_86 = l_v4118_0.Anchor;
+                        local v4127 = l_v4118_0.EndT or 1;
+                        local l_Del_85 = l_v4118_0.Del;
+                        local l_Skip_85 = l_v4118_0.Skip;
+                        if l_Start_90 and l_End_88 then
+                            l_Model_86.PrimaryPart = l_Start_90;
+                            if not l_Skip_85 then
+                                for _, v4131 in pairs(l_Model_86:GetChildren()) do
+                                    if v4131:IsA("BasePart") then
+                                        v4131.CanCollide = false;
+                                        v4131.Anchored = true;
+                                    end;
+                                end;
+                            end;
+                            if l_Anchor_86 then
+                                l_Model_86:SetPrimaryPartCFrame(l_Anchor_86);
+                            end;
+                            if l_v4118_0.T then
+                                l_Start_90.Transparency = l_v4118_0.T;
+                            end;
+                            l_End_88.Transparency = 1;
+                            l_Model_86.Parent = workspace.Thrown;
+                            local l_Decal_171 = l_Start_90:FindFirstChildOfClass("Decal");
+                            local l_SpecialMesh_172 = l_Start_90:FindFirstChildOfClass("SpecialMesh");
+                            local l_SpecialMesh_173 = l_End_88:FindFirstChildOfClass("SpecialMesh");
+                            local l_Decal_172 = l_End_88:FindFirstChildOfClass("Decal");
+                            if l_Decal_172 and not l_Skip_85 then
+                                l_Decal_172.Transparency = 1;
+                            end;
+                            local v4136 = nil;
+                            if l_Del_85 then
+                                game:GetService("TweenService"):Create(l_Start_90, v4122, {
+                                    Size = l_End_88.Size, 
+                                    CFrame = l_End_88.CFrame
+                                }):Play();
+                                task.delay(l_Del_85, function()
+                                    v4136 = game:GetService("TweenService"):Create(l_Start_90, v4122, {
+                                        Transparency = v4127
+                                    });
+                                    v4136:Play();
+                                    if l_Decal_171 then
+                                        for _, v4138 in pairs(l_Start_90:GetChildren()) do
+                                            if v4138:IsA("Decal") then
+                                                game:GetService("TweenService"):Create(v4138, v4122, {
+                                                    Transparency = v4127
+                                                }):Play();
+                                            end;
+                                        end;
+                                    end;
+                                    if l_SpecialMesh_172 then
+                                        v4136 = game:GetService("TweenService"):Create(l_SpecialMesh_172, v4122, {
+                                            Scale = l_SpecialMesh_173.Scale
+                                        }):Play();
+                                    end;
+                                end);
+                            else
+                                if l_SpecialMesh_172 then
+                                    game:GetService("TweenService"):Create(l_SpecialMesh_172, v4122, {
+                                        Scale = l_SpecialMesh_173.Scale
+                                    }):Play();
+                                end;
+                                if l_Decal_171 then
+                                    for _, v4140 in pairs(l_Start_90:GetChildren()) do
+                                        if v4140:IsA("Decal") then
+                                            game:GetService("TweenService"):Create(v4140, v4122, {
+                                                Transparency = v4127
+                                            }):Play();
+                                        end;
+                                    end;
+                                    v4136 = game:GetService("TweenService"):Create(l_Start_90, v4122, {
+                                        Size = l_End_88.Size, 
+                                        CFrame = l_End_88.CFrame
+                                    });
+                                    v4136:Play();
+                                else
+                                    v4136 = game:GetService("TweenService"):Create(l_Start_90, v4122, {
+                                        Size = l_End_88.Size, 
+                                        Transparency = v4127, 
+                                        CFrame = l_End_88.CFrame
+                                    });
+                                    v4136:Play();
+                                end;
+                            end;
+                            if not l_Stay_85 then
+                                if l_Del_85 then
+                                    task.wait(l_Del_85 + 0.1);
+                                end;
+                                v4136.Completed:Connect(function()
+                                    l_Model_86:Destroy();
+                                end);
+                            end;
+                            return ;
+                        else
+                            warn("NO START OR END");
+                            return ;
+                        end;
+                    end);
+                    v4118 = v4016.Floor:Clone();
+                    v4118:ScaleTo(v4021:NextNumber(0.45, 0.55));
+                    local v4141 = {
+                        Model = v4118, 
+                        EndT = 1
+                    };
+                    v4095, v4096, v4119 = l_char_11.HumanoidRootPart.CFrame:ToOrientation();
+                    v4141.Anchor = CFrame.new(l_char_11.Torso.Position) * CFrame.Angles(0, v4096, 0) * CFrame.new(0, -l_PrimaryPart_26.Size.Y * 1.1, -1) * CFrame.Angles(0, -1.5707963267948966, 0);
+                    v4141.Info = TweenInfo.new(0.7, Enum.EasingStyle.Exponential);
+                    local l_v4141_0 = v4141 --[[ copy: 8 -> 19 ]];
+                    task.spawn(function()
+                        local l_Model_87 = l_v4141_0.Model;
+                        local v4144 = l_v4141_0.Info or TweenInfo.new(1, Enum.EasingStyle.Sine);
+                        local l_Start_91 = l_Model_87:FindFirstChild("Start");
+                        local l_End_89 = l_Model_87:FindFirstChild("End");
+                        local l_Stay_86 = l_v4141_0.Stay;
+                        local l_Anchor_87 = l_v4141_0.Anchor;
+                        local v4149 = l_v4141_0.EndT or 1;
+                        local l_Del_86 = l_v4141_0.Del;
+                        local l_Skip_86 = l_v4141_0.Skip;
+                        if l_Start_91 and l_End_89 then
+                            l_Model_87.PrimaryPart = l_Start_91;
+                            if not l_Skip_86 then
+                                for _, v4153 in pairs(l_Model_87:GetChildren()) do
+                                    if v4153:IsA("BasePart") then
+                                        v4153.CanCollide = false;
+                                        v4153.Anchored = true;
+                                    end;
+                                end;
+                            end;
+                            if l_Anchor_87 then
+                                l_Model_87:SetPrimaryPartCFrame(l_Anchor_87);
+                            end;
+                            if l_v4141_0.T then
+                                l_Start_91.Transparency = l_v4141_0.T;
+                            end;
+                            l_End_89.Transparency = 1;
+                            l_Model_87.Parent = workspace.Thrown;
+                            local l_Decal_173 = l_Start_91:FindFirstChildOfClass("Decal");
+                            local l_SpecialMesh_174 = l_Start_91:FindFirstChildOfClass("SpecialMesh");
+                            local l_SpecialMesh_175 = l_End_89:FindFirstChildOfClass("SpecialMesh");
+                            local l_Decal_174 = l_End_89:FindFirstChildOfClass("Decal");
+                            if l_Decal_174 and not l_Skip_86 then
+                                l_Decal_174.Transparency = 1;
+                            end;
+                            local v4158 = nil;
+                            if l_Del_86 then
+                                game:GetService("TweenService"):Create(l_Start_91, v4144, {
+                                    Size = l_End_89.Size, 
+                                    CFrame = l_End_89.CFrame
+                                }):Play();
+                                task.delay(l_Del_86, function()
+                                    v4158 = game:GetService("TweenService"):Create(l_Start_91, v4144, {
+                                        Transparency = v4149
+                                    });
+                                    v4158:Play();
+                                    if l_Decal_173 then
+                                        for _, v4160 in pairs(l_Start_91:GetChildren()) do
+                                            if v4160:IsA("Decal") then
+                                                game:GetService("TweenService"):Create(v4160, v4144, {
+                                                    Transparency = v4149
+                                                }):Play();
+                                            end;
+                                        end;
+                                    end;
+                                    if l_SpecialMesh_174 then
+                                        v4158 = game:GetService("TweenService"):Create(l_SpecialMesh_174, v4144, {
+                                            Scale = l_SpecialMesh_175.Scale
+                                        }):Play();
+                                    end;
+                                end);
+                            else
+                                if l_SpecialMesh_174 then
+                                    game:GetService("TweenService"):Create(l_SpecialMesh_174, v4144, {
+                                        Scale = l_SpecialMesh_175.Scale
+                                    }):Play();
+                                end;
+                                if l_Decal_173 then
+                                    for _, v4162 in pairs(l_Start_91:GetChildren()) do
+                                        if v4162:IsA("Decal") then
+                                            game:GetService("TweenService"):Create(v4162, v4144, {
+                                                Transparency = v4149
+                                            }):Play();
+                                        end;
+                                    end;
+                                    v4158 = game:GetService("TweenService"):Create(l_Start_91, v4144, {
+                                        Size = l_End_89.Size, 
+                                        CFrame = l_End_89.CFrame
+                                    });
+                                    v4158:Play();
+                                else
+                                    v4158 = game:GetService("TweenService"):Create(l_Start_91, v4144, {
+                                        Size = l_End_89.Size, 
+                                        Transparency = v4149, 
+                                        CFrame = l_End_89.CFrame
+                                    });
+                                    v4158:Play();
+                                end;
+                            end;
+                            if not l_Stay_86 then
+                                if l_Del_86 then
+                                    task.wait(l_Del_86 + 0.1);
+                                end;
+                                v4158.Completed:Connect(function()
+                                    l_Model_87:Destroy();
+                                end);
+                            end;
+                            return ;
+                        else
+                            warn("NO START OR END");
+                            return ;
+                        end;
+                    end);
+                    v4141 = v4016.FPurp:Clone();
+                    v4141:ScaleTo(v4021:NextNumber(0.65, 0.75));
+                    local v4163 = {
+                        Model = v4141, 
+                        EndT = 1
+                    };
+                    local v4164;
+                    v4096, v4119, v4164 = l_char_11.HumanoidRootPart.CFrame:ToOrientation();
+                    v4163.Anchor = CFrame.new(l_char_11.Torso.Position) * CFrame.Angles(0, v4119, 0) * CFrame.new(0, -l_PrimaryPart_26.Size.Y * 1.1, -1) * CFrame.Angles(0, -1.5707963267948966, 0);
+                    v4163.Info = TweenInfo.new(0.7, Enum.EasingStyle.Exponential);
+                    task.spawn(function()
+                        local l_Model_88 = v4163.Model;
+                        local v4166 = v4163.Info or TweenInfo.new(1, Enum.EasingStyle.Sine);
+                        local l_Start_92 = l_Model_88:FindFirstChild("Start");
+                        local l_End_90 = l_Model_88:FindFirstChild("End");
+                        local l_Stay_87 = v4163.Stay;
+                        local l_Anchor_88 = v4163.Anchor;
+                        local v4171 = v4163.EndT or 1;
+                        local l_Del_87 = v4163.Del;
+                        local l_Skip_87 = v4163.Skip;
+                        if l_Start_92 and l_End_90 then
+                            l_Model_88.PrimaryPart = l_Start_92;
+                            if not l_Skip_87 then
+                                for _, v4175 in pairs(l_Model_88:GetChildren()) do
+                                    if v4175:IsA("BasePart") then
+                                        v4175.CanCollide = false;
+                                        v4175.Anchored = true;
+                                    end;
+                                end;
+                            end;
+                            if l_Anchor_88 then
+                                l_Model_88:SetPrimaryPartCFrame(l_Anchor_88);
+                            end;
+                            if v4163.T then
+                                l_Start_92.Transparency = v4163.T;
+                            end;
+                            l_End_90.Transparency = 1;
+                            l_Model_88.Parent = workspace.Thrown;
+                            local l_Decal_175 = l_Start_92:FindFirstChildOfClass("Decal");
+                            local l_SpecialMesh_176 = l_Start_92:FindFirstChildOfClass("SpecialMesh");
+                            local l_SpecialMesh_177 = l_End_90:FindFirstChildOfClass("SpecialMesh");
+                            local l_Decal_176 = l_End_90:FindFirstChildOfClass("Decal");
+                            if l_Decal_176 and not l_Skip_87 then
+                                l_Decal_176.Transparency = 1;
+                            end;
+                            local v4180 = nil;
+                            if l_Del_87 then
+                                game:GetService("TweenService"):Create(l_Start_92, v4166, {
+                                    Size = l_End_90.Size, 
+                                    CFrame = l_End_90.CFrame
+                                }):Play();
+                                task.delay(l_Del_87, function()
+                                    v4180 = game:GetService("TweenService"):Create(l_Start_92, v4166, {
+                                        Transparency = v4171
+                                    });
+                                    v4180:Play();
+                                    if l_Decal_175 then
+                                        for _, v4182 in pairs(l_Start_92:GetChildren()) do
+                                            if v4182:IsA("Decal") then
+                                                game:GetService("TweenService"):Create(v4182, v4166, {
+                                                    Transparency = v4171
+                                                }):Play();
+                                            end;
+                                        end;
+                                    end;
+                                    if l_SpecialMesh_176 then
+                                        v4180 = game:GetService("TweenService"):Create(l_SpecialMesh_176, v4166, {
+                                            Scale = l_SpecialMesh_177.Scale
+                                        }):Play();
+                                    end;
+                                end);
+                            else
+                                if l_SpecialMesh_176 then
+                                    game:GetService("TweenService"):Create(l_SpecialMesh_176, v4166, {
+                                        Scale = l_SpecialMesh_177.Scale
+                                    }):Play();
+                                end;
+                                if l_Decal_175 then
+                                    for _, v4184 in pairs(l_Start_92:GetChildren()) do
+                                        if v4184:IsA("Decal") then
+                                            game:GetService("TweenService"):Create(v4184, v4166, {
+                                                Transparency = v4171
+                                            }):Play();
+                                        end;
+                                    end;
+                                    v4180 = game:GetService("TweenService"):Create(l_Start_92, v4166, {
+                                        Size = l_End_90.Size, 
+                                        CFrame = l_End_90.CFrame
+                                    });
+                                    v4180:Play();
+                                else
+                                    v4180 = game:GetService("TweenService"):Create(l_Start_92, v4166, {
+                                        Size = l_End_90.Size, 
+                                        Transparency = v4171, 
+                                        CFrame = l_End_90.CFrame
+                                    });
+                                    v4180:Play();
+                                end;
+                            end;
+                            if not l_Stay_87 then
+                                if l_Del_87 then
+                                    task.wait(l_Del_87 + 0.1);
+                                end;
+                                v4180.Completed:Connect(function()
+                                    l_Model_88:Destroy();
+                                end);
+                            end;
+                            return ;
+                        else
+                            warn("NO START OR END");
+                            return ;
+                        end;
+                    end);
+                end;
+                v4050(v4066 * CFrame.new(0, 0, 0.4), Color3.fromRGB(223, 122, 8455), 0.5 * v4068, v4067 * 1, 170);
+                v4050(v4066 * CFrame.new(0, 0, 0.1), Color3.fromRGB(223, 122, 8455), 1 * v4068, v4067 * 0.95, 170);
+                v4050(v4066, Color3.fromRGB(57, 54, 150), 1 * v4068, v4067 * 1, 170);
+            end;
+            local function v4187()
+                local function v4186(v4185)
+                    v4065(CFrame.new(1, 0.4, -0.5) * CFrame.Angles(3.141592653589793, 0, 1.1344640137963142), Vector3.new(4, 17, 8, 0), 0.2);
+                    v4065(CFrame.new(1, 0.4, -0.5) * CFrame.Angles(3.141592653589793, 0, 1.1344640137963142), Vector3.new(4, 17, 4, 0), 0.15);
+                    if v4185 then
+                        if not l_v4012_0.IsPlaying then
+                            return ;
+                        else
+                            l_wait_6(0.2);
+                        end;
+                    elseif not l_v4012_0.IsPlaying then
+                        return ;
+                    else
+                        l_wait_6(0.4);
+                    end;
+                    v4065(CFrame.new(1, 0.4, -1) * CFrame.Angles(3.141592653589793, 0, -1.1344640137963142), Vector3.new(4, 17, 8, 0), 0.2);
+                    if not l_v4012_0.IsPlaying then
+                        return ;
+                    else
+                        l_wait_6(0.2);
+                        if not l_v4012_0.IsPlaying then
+                            return ;
+                        else
+                            v4065(CFrame.new(1, 0.8, -2.5) * CFrame.Angles(3.141592653589793, 0, 2.530727415391778), Vector3.new(4, 17, 8, 0), 0.2);
+                            l_wait_6(0.2);
+                            if not l_v4012_0.IsPlaying then
+                                return ;
+                            else
+                                v4065(CFrame.new(1, 0.4, -3) * CFrame.Angles(3.141592653589793, 0, 1.1344640137963142), Vector3.new(4, 17, 8, 0), 0.2);
+                                l_wait_6(0.2);
+                                if not l_v4012_0.IsPlaying then
+                                    return ;
+                                else
+                                    v4065(CFrame.new(1, 1, -3.5) * CFrame.Angles(3.141592653589793, 0, 2.181661564992912), Vector3.new(4, 17, 8, 0), 0.2);
+                                    return ;
+                                end;
+                            end;
+                        end;
+                    end;
+                end;
+                v4186();
+                if not l_v4012_0.IsPlaying then
+                    return ;
+                else
+                    v4186(true);
+                    if not l_v4012_0.IsPlaying then
+                        return ;
+                    else
+                        l_wait_6(0.2);
+                        if not l_v4012_0.IsPlaying then
+                            return ;
+                        else
+                            v4065(CFrame.new(1, 0.4, -3.5) * CFrame.Angles(3.141592653589793, 0, 1.1344640137963142), Vector3.new(4, 17, 8, 0), 0.2);
+                            l_wait_6(0.2);
+                            if not l_v4012_0.IsPlaying then
+                                return ;
+                            else
+                                v4065(CFrame.new(1, 0.5, -3.5) * CFrame.Angles(3.141592653589793, 0, 2.181661564992912), Vector3.new(4, 17, 8, 0), 0.2);
+                                l_wait_6(0.2);
+                                if not l_v4012_0.IsPlaying then
+                                    return ;
+                                else
+                                    v4065(CFrame.new(1, 0.4, -3.5) * CFrame.Angles(3.141592653589793, 0, -1.1344640137963142), Vector3.new(4, 17, 8, 0), 0.2);
+                                    return ;
+                                end;
+                            end;
+                        end;
+                    end;
+                end;
+            end;
+            local function v4271()
+                local l_BodyVelocity_3 = l_char_11.PrimaryPart:FindFirstChildOfClass("BodyVelocity");
+                if l_BodyVelocity_3 and l_BodyVelocity_3:GetAttribute("Goto") then
+                    l_BodyVelocity_3:SetAttribute("Goto", nil);
+                end;
+                if not l_v4012_0.IsPlaying then
+                    return ;
+                else
+                    local l_v819_5 = v819;
+                    local v4190 = {
+                        FX = v4016.Slow
+                    };
+                    local v4191, v4192, v4193 = l_char_11.HumanoidRootPart.CFrame:ToOrientation();
+                    v4190.Anchor = CFrame.new(l_char_11.Torso.Position) * CFrame.Angles(0, v4192, 0) * CFrame.new(0, 0, -3) * CFrame.Angles(0, -1.5707963267948966, 0);
+                    v4190.Maid = v4017._maid;
+                    l_v819_5 = l_v819_5(v4190);
+                    v833(l_v819_5);
+                    for _, v4195 in pairs(l_v819_5:GetDescendants()) do
+                        if v4195:IsA("ParticleEmitter") then
+                            l_TweenService_8:Create(v4195, TweenInfo.new(0.2, Enum.EasingStyle.Sine), {
+                                TimeScale = 0.05
+                            }):Play();
+                        end;
+                    end;
+                    v4190 = v4016.Bigg:Clone();
+                    v4190:ScaleTo(0.7);
+                    local v4196 = {
+                        Model = v4190, 
+                        EndT = 1, 
+                        Anchor = l_v819_5.CFrame * CFrame.new(0, 1, 1) * CFrame.Angles(0, 1.5707963267948966, 0), 
+                        Info = TweenInfo.new(2, Enum.EasingStyle.Exponential)
+                    };
+                    local l_v4196_0 = v4196 --[[ copy: 3 -> 13 ]];
+                    task.spawn(function()
+                        local l_Model_89 = l_v4196_0.Model;
+                        local v4199 = l_v4196_0.Info or TweenInfo.new(1, Enum.EasingStyle.Sine);
+                        local l_Start_93 = l_Model_89:FindFirstChild("Start");
+                        local l_End_91 = l_Model_89:FindFirstChild("End");
+                        local l_Stay_88 = l_v4196_0.Stay;
+                        local l_Anchor_89 = l_v4196_0.Anchor;
+                        local v4204 = l_v4196_0.EndT or 1;
+                        local l_Del_88 = l_v4196_0.Del;
+                        local l_Skip_88 = l_v4196_0.Skip;
+                        if l_Start_93 and l_End_91 then
+                            l_Model_89.PrimaryPart = l_Start_93;
+                            if not l_Skip_88 then
+                                for _, v4208 in pairs(l_Model_89:GetChildren()) do
+                                    if v4208:IsA("BasePart") then
+                                        v4208.CanCollide = false;
+                                        v4208.Anchored = true;
+                                    end;
+                                end;
+                            end;
+                            if l_Anchor_89 then
+                                l_Model_89:SetPrimaryPartCFrame(l_Anchor_89);
+                            end;
+                            if l_v4196_0.T then
+                                l_Start_93.Transparency = l_v4196_0.T;
+                            end;
+                            l_End_91.Transparency = 1;
+                            l_Model_89.Parent = workspace.Thrown;
+                            local l_Decal_177 = l_Start_93:FindFirstChildOfClass("Decal");
+                            local l_SpecialMesh_178 = l_Start_93:FindFirstChildOfClass("SpecialMesh");
+                            local l_SpecialMesh_179 = l_End_91:FindFirstChildOfClass("SpecialMesh");
+                            local l_Decal_178 = l_End_91:FindFirstChildOfClass("Decal");
+                            if l_Decal_178 and not l_Skip_88 then
+                                l_Decal_178.Transparency = 1;
+                            end;
+                            local v4213 = nil;
+                            if l_Del_88 then
+                                game:GetService("TweenService"):Create(l_Start_93, v4199, {
+                                    Size = l_End_91.Size, 
+                                    CFrame = l_End_91.CFrame
+                                }):Play();
+                                task.delay(l_Del_88, function()
+                                    v4213 = game:GetService("TweenService"):Create(l_Start_93, v4199, {
+                                        Transparency = v4204
+                                    });
+                                    v4213:Play();
+                                    if l_Decal_177 then
+                                        for _, v4215 in pairs(l_Start_93:GetChildren()) do
+                                            if v4215:IsA("Decal") then
+                                                game:GetService("TweenService"):Create(v4215, v4199, {
+                                                    Transparency = v4204
+                                                }):Play();
+                                            end;
+                                        end;
+                                    end;
+                                    if l_SpecialMesh_178 then
+                                        v4213 = game:GetService("TweenService"):Create(l_SpecialMesh_178, v4199, {
+                                            Scale = l_SpecialMesh_179.Scale
+                                        }):Play();
+                                    end;
+                                end);
+                            else
+                                if l_SpecialMesh_178 then
+                                    game:GetService("TweenService"):Create(l_SpecialMesh_178, v4199, {
+                                        Scale = l_SpecialMesh_179.Scale
+                                    }):Play();
+                                end;
+                                if l_Decal_177 then
+                                    for _, v4217 in pairs(l_Start_93:GetChildren()) do
+                                        if v4217:IsA("Decal") then
+                                            game:GetService("TweenService"):Create(v4217, v4199, {
+                                                Transparency = v4204
+                                            }):Play();
+                                        end;
+                                    end;
+                                    v4213 = game:GetService("TweenService"):Create(l_Start_93, v4199, {
+                                        Size = l_End_91.Size, 
+                                        CFrame = l_End_91.CFrame
+                                    });
+                                    v4213:Play();
+                                else
+                                    v4213 = game:GetService("TweenService"):Create(l_Start_93, v4199, {
+                                        Size = l_End_91.Size, 
+                                        Transparency = v4204, 
+                                        CFrame = l_End_91.CFrame
+                                    });
+                                    v4213:Play();
+                                end;
+                            end;
+                            if not l_Stay_88 then
+                                if l_Del_88 then
+                                    task.wait(l_Del_88 + 0.1);
+                                end;
+                                v4213.Completed:Connect(function()
+                                    l_Model_89:Destroy();
+                                end);
+                            end;
+                            return ;
+                        else
+                            warn("NO START OR END");
+                            return ;
+                        end;
+                    end);
+                    v4196 = v4016.Upwave:Clone();
+                    v4196:ScaleTo(0.7);
+                    local v4218 = {
+                        Model = v4196, 
+                        EndT = 1, 
+                        Anchor = l_v819_5.CFrame * CFrame.new(0, 1, 1) * CFrame.Angles(0, 1.5707963267948966, 0), 
+                        Info = TweenInfo.new(1.5, Enum.EasingStyle.Exponential)
+                    };
+                    local l_v4218_0 = v4218 --[[ copy: 4 -> 14 ]];
+                    task.spawn(function()
+                        local l_Model_90 = l_v4218_0.Model;
+                        local v4221 = l_v4218_0.Info or TweenInfo.new(1, Enum.EasingStyle.Sine);
+                        local l_Start_94 = l_Model_90:FindFirstChild("Start");
+                        local l_End_92 = l_Model_90:FindFirstChild("End");
+                        local l_Stay_89 = l_v4218_0.Stay;
+                        local l_Anchor_90 = l_v4218_0.Anchor;
+                        local v4226 = l_v4218_0.EndT or 1;
+                        local l_Del_89 = l_v4218_0.Del;
+                        local l_Skip_89 = l_v4218_0.Skip;
+                        if l_Start_94 and l_End_92 then
+                            l_Model_90.PrimaryPart = l_Start_94;
+                            if not l_Skip_89 then
+                                for _, v4230 in pairs(l_Model_90:GetChildren()) do
+                                    if v4230:IsA("BasePart") then
+                                        v4230.CanCollide = false;
+                                        v4230.Anchored = true;
+                                    end;
+                                end;
+                            end;
+                            if l_Anchor_90 then
+                                l_Model_90:SetPrimaryPartCFrame(l_Anchor_90);
+                            end;
+                            if l_v4218_0.T then
+                                l_Start_94.Transparency = l_v4218_0.T;
+                            end;
+                            l_End_92.Transparency = 1;
+                            l_Model_90.Parent = workspace.Thrown;
+                            local l_Decal_179 = l_Start_94:FindFirstChildOfClass("Decal");
+                            local l_SpecialMesh_180 = l_Start_94:FindFirstChildOfClass("SpecialMesh");
+                            local l_SpecialMesh_181 = l_End_92:FindFirstChildOfClass("SpecialMesh");
+                            local l_Decal_180 = l_End_92:FindFirstChildOfClass("Decal");
+                            if l_Decal_180 and not l_Skip_89 then
+                                l_Decal_180.Transparency = 1;
+                            end;
+                            local v4235 = nil;
+                            if l_Del_89 then
+                                game:GetService("TweenService"):Create(l_Start_94, v4221, {
+                                    Size = l_End_92.Size, 
+                                    CFrame = l_End_92.CFrame
+                                }):Play();
+                                task.delay(l_Del_89, function()
+                                    v4235 = game:GetService("TweenService"):Create(l_Start_94, v4221, {
+                                        Transparency = v4226
+                                    });
+                                    v4235:Play();
+                                    if l_Decal_179 then
+                                        for _, v4237 in pairs(l_Start_94:GetChildren()) do
+                                            if v4237:IsA("Decal") then
+                                                game:GetService("TweenService"):Create(v4237, v4221, {
+                                                    Transparency = v4226
+                                                }):Play();
+                                            end;
+                                        end;
+                                    end;
+                                    if l_SpecialMesh_180 then
+                                        v4235 = game:GetService("TweenService"):Create(l_SpecialMesh_180, v4221, {
+                                            Scale = l_SpecialMesh_181.Scale
+                                        }):Play();
+                                    end;
+                                end);
+                            else
+                                if l_SpecialMesh_180 then
+                                    game:GetService("TweenService"):Create(l_SpecialMesh_180, v4221, {
+                                        Scale = l_SpecialMesh_181.Scale
+                                    }):Play();
+                                end;
+                                if l_Decal_179 then
+                                    for _, v4239 in pairs(l_Start_94:GetChildren()) do
+                                        if v4239:IsA("Decal") then
+                                            game:GetService("TweenService"):Create(v4239, v4221, {
+                                                Transparency = v4226
+                                            }):Play();
+                                        end;
+                                    end;
+                                    v4235 = game:GetService("TweenService"):Create(l_Start_94, v4221, {
+                                        Size = l_End_92.Size, 
+                                        CFrame = l_End_92.CFrame
+                                    });
+                                    v4235:Play();
+                                else
+                                    v4235 = game:GetService("TweenService"):Create(l_Start_94, v4221, {
+                                        Size = l_End_92.Size, 
+                                        Transparency = v4226, 
+                                        CFrame = l_End_92.CFrame
+                                    });
+                                    v4235:Play();
+                                end;
+                            end;
+                            if not l_Stay_89 then
+                                if l_Del_89 then
+                                    task.wait(l_Del_89 + 0.1);
+                                end;
+                                v4235.Completed:Connect(function()
+                                    l_Model_90:Destroy();
+                                end);
+                            end;
+                            return ;
+                        else
+                            warn("NO START OR END");
+                            return ;
+                        end;
+                    end);
+                    v4218 = v819;
+                    local v4240 = {
+                        FX = v4016.Dust
+                    };
+                    local v4241, v4242;
+                    v4193, v4241, v4242 = l_char_11.HumanoidRootPart.CFrame:ToOrientation();
+                    v4240.Anchor = CFrame.new(l_char_11.Torso.Position) * CFrame.Angles(0, v4241, 0) * CFrame.new(0, -l_PrimaryPart_26.Size.Y * 1.5, 0);
+                    v4240.Maid = v4017._maid;
+                    v4218 = v4218(v4240);
+                    v833(v4218);
+                    for _, v4244 in pairs(v4218:GetDescendants()) do
+                        if v4244:IsA("ParticleEmitter") then
+                            l_TweenService_8:Create(v4244, TweenInfo.new(1, Enum.EasingStyle.Sine), {
+                                TimeScale = 0.05
+                            }):Play();
+                        end;
+                    end;
+                    v4240 = v4016.AG:Clone();
+                    v4240:ScaleTo(0.7);
+                    v4191 = {
+                        Model = v4240, 
+                        EndT = 1
+                    };
+                    local v4245, v4246;
+                    v4242, v4245, v4246 = l_char_11.HumanoidRootPart.CFrame:ToOrientation();
+                    v4191.Anchor = CFrame.new(l_char_11.Torso.Position) * CFrame.Angles(0, v4245, 0) * CFrame.new(0, -1, 0) * CFrame.Angles(0, 1.5707963267948966, 0);
+                    v4191.Info = TweenInfo.new(3, Enum.EasingStyle.Exponential);
+                    task.spawn(function()
+                        local l_Model_91 = v4191.Model;
+                        local v4248 = v4191.Info or TweenInfo.new(1, Enum.EasingStyle.Sine);
+                        local l_Start_95 = l_Model_91:FindFirstChild("Start");
+                        local l_End_93 = l_Model_91:FindFirstChild("End");
+                        local l_Stay_90 = v4191.Stay;
+                        local l_Anchor_91 = v4191.Anchor;
+                        local v4253 = v4191.EndT or 1;
+                        local l_Del_90 = v4191.Del;
+                        local l_Skip_90 = v4191.Skip;
+                        if l_Start_95 and l_End_93 then
+                            l_Model_91.PrimaryPart = l_Start_95;
+                            if not l_Skip_90 then
+                                for _, v4257 in pairs(l_Model_91:GetChildren()) do
+                                    if v4257:IsA("BasePart") then
+                                        v4257.CanCollide = false;
+                                        v4257.Anchored = true;
+                                    end;
+                                end;
+                            end;
+                            if l_Anchor_91 then
+                                l_Model_91:SetPrimaryPartCFrame(l_Anchor_91);
+                            end;
+                            if v4191.T then
+                                l_Start_95.Transparency = v4191.T;
+                            end;
+                            l_End_93.Transparency = 1;
+                            l_Model_91.Parent = workspace.Thrown;
+                            local l_Decal_181 = l_Start_95:FindFirstChildOfClass("Decal");
+                            local l_SpecialMesh_182 = l_Start_95:FindFirstChildOfClass("SpecialMesh");
+                            local l_SpecialMesh_183 = l_End_93:FindFirstChildOfClass("SpecialMesh");
+                            local l_Decal_182 = l_End_93:FindFirstChildOfClass("Decal");
+                            if l_Decal_182 and not l_Skip_90 then
+                                l_Decal_182.Transparency = 1;
+                            end;
+                            local v4262 = nil;
+                            if l_Del_90 then
+                                game:GetService("TweenService"):Create(l_Start_95, v4248, {
+                                    Size = l_End_93.Size, 
+                                    CFrame = l_End_93.CFrame
+                                }):Play();
+                                task.delay(l_Del_90, function()
+                                    v4262 = game:GetService("TweenService"):Create(l_Start_95, v4248, {
+                                        Transparency = v4253
+                                    });
+                                    v4262:Play();
+                                    if l_Decal_181 then
+                                        for _, v4264 in pairs(l_Start_95:GetChildren()) do
+                                            if v4264:IsA("Decal") then
+                                                game:GetService("TweenService"):Create(v4264, v4248, {
+                                                    Transparency = v4253
+                                                }):Play();
+                                            end;
+                                        end;
+                                    end;
+                                    if l_SpecialMesh_182 then
+                                        v4262 = game:GetService("TweenService"):Create(l_SpecialMesh_182, v4248, {
+                                            Scale = l_SpecialMesh_183.Scale
+                                        }):Play();
+                                    end;
+                                end);
+                            else
+                                if l_SpecialMesh_182 then
+                                    game:GetService("TweenService"):Create(l_SpecialMesh_182, v4248, {
+                                        Scale = l_SpecialMesh_183.Scale
+                                    }):Play();
+                                end;
+                                if l_Decal_181 then
+                                    for _, v4266 in pairs(l_Start_95:GetChildren()) do
+                                        if v4266:IsA("Decal") then
+                                            game:GetService("TweenService"):Create(v4266, v4248, {
+                                                Transparency = v4253
+                                            }):Play();
+                                        end;
+                                    end;
+                                    v4262 = game:GetService("TweenService"):Create(l_Start_95, v4248, {
+                                        Size = l_End_93.Size, 
+                                        CFrame = l_End_93.CFrame
+                                    });
+                                    v4262:Play();
+                                else
+                                    v4262 = game:GetService("TweenService"):Create(l_Start_95, v4248, {
+                                        Size = l_End_93.Size, 
+                                        Transparency = v4253, 
+                                        CFrame = l_End_93.CFrame
+                                    });
+                                    v4262:Play();
+                                end;
+                            end;
+                            if not l_Stay_90 then
+                                if l_Del_90 then
+                                    task.wait(l_Del_90 + 0.1);
+                                end;
+                                v4262.Completed:Connect(function()
+                                    l_Model_91:Destroy();
+                                end);
+                            end;
+                            return ;
+                        else
+                            warn("NO START OR END");
+                            return ;
+                        end;
+                    end);
+                    l_wait_6(1.3);
+                    for _, v4268 in pairs(l_v819_5:GetDescendants()) do
+                        if v4268:IsA("ParticleEmitter") then
+                            l_TweenService_8:Create(v4268, TweenInfo.new(0.1, Enum.EasingStyle.Sine), {
+                                TimeScale = 1
+                            }):Play();
+                        end;
+                    end;
+                    for _, v4270 in pairs(v4218:GetDescendants()) do
+                        if v4270:IsA("ParticleEmitter") then
+                            l_TweenService_8:Create(v4270, TweenInfo.new(0.1, Enum.EasingStyle.Sine), {
+                                TimeScale = 1
+                            }):Play();
+                        end;
+                    end;
+                    return ;
+                end;
+            end;
+            local function v4520()
+                if not l_v4012_0.IsPlaying then
+                    return ;
+                else
+                    task.spawn(function()
+                        local v4272 = {};
+                        local v4273 = {};
+                        for _ = 1, 6 do
+                            local v4275 = v4017._maid:give(v4016.Dragons:Clone());
+                            local v4276 = v4017._maid:give(Instance.new("NumberValue"));
+                            v4017._maid:giveTask(v4276.Changed:Connect(function()
+                                v4275:ScaleTo(v4276.Value);
+                            end));
+                            v4276.Value = 0.2;
+                            l_TweenService_8:Create(v4276, TweenInfo.new(v4021:NextNumber(0.7, 1.5), Enum.EasingStyle.Sine), {
+                                Value = v4021:NextNumber(0.7, 1.2)
+                            }):Play();
+                            local l_PrimaryPart_27 = v4275.PrimaryPart;
+                            local _, v4279, v4280 = l_char_11.HumanoidRootPart.CFrame:ToOrientation();
+                            l_PrimaryPart_27.CFrame = CFrame.new(l_char_11.Torso.Position) * CFrame.Angles(0, v4279, 0) * CFrame.new(v4021:NextNumber(-0.5, 0.5), v4021:NextNumber(-0.5, 0.5), v4021:NextNumber(-5, -1)) * CFrame.Angles(0, 0, (math.rad((math.random(0, 360)))));
+                            for _, v4282 in pairs(v4275:GetDescendants()) do
+                                if v4282:IsA("Beam") then
+                                    v4279 = v4282.Transparency;
+                                    v4282.Transparency = NumberSequence.new({
+                                        NumberSequenceKeypoint.new(0, 1), 
+                                        NumberSequenceKeypoint.new(1, 1)
+                                    });
+                                    v4282.TextureSpeed = v4021:NextNumber(-1, -0.5);
+                                    v4280 = v4021:NextNumber(0.3, 0.6);
+                                    v774(v4282, {
+                                        Time = v4280, 
+                                        EasingStyle = "Sine", 
+                                        Goal = {
+                                            Transparency = v4279
+                                        }
+                                    });
+                                    table.insert(v4272, v4282);
+                                end;
+                            end;
+                            v4273[v4275] = {
+                                Rate = v4021:NextNumber(6, 16), 
+                                Offset = l_char_11.Torso.CFrame:ToObjectSpace(v4275.PrimaryPart.CFrame)
+                            };
+                            v4275.Parent = l_Thrown_9;
+                            game.Debris:AddItem(v4275, 2);
+                        end;
+                        task.spawn(function()
+                            local v4283 = tick();
+                            while tick() - v4283 < 2 do
+                                for v4284, v4285 in pairs(v4273) do
+                                    v4284.PrimaryPart.CFrame = v4284.PrimaryPart.CFrame:Lerp(l_char_11.Torso.CFrame * v4285.Offset, 0.1) * CFrame.Angles(0, 0, (math.rad(v4285.Rate)));
+                                end;
+                                task.wait();
+                            end;
+                        end);
+                        l_wait_6(0.3);
+                        for _, v4287 in pairs(v4272) do
+                            local v4288 = v4021:NextNumber(0.6, 1);
+                            v774(v4287, {
+                                Time = v4288, 
+                                EasingStyle = "Sine", 
+                                Goal = {
+                                    Transparency = NumberSequence.new({
+                                        NumberSequenceKeypoint.new(0, 1), 
+                                        NumberSequenceKeypoint.new(1, 1)
+                                    })
+                                }
+                            });
+                            game.Debris:AddItem(v4287, v4288);
+                        end;
+                    end);
+                    local function v4296(v4289, v4290, v4291, v4292, _)
+                        local v4294 = l_char_11.Torso.CFrame * v4289;
+                        local v4295 = v10.new("Cone", v10.SlashWind0, l_PrimaryPart_26, v4294, v4292, v4290);
+                        v4295:Play(v4291);
+                        v4295:TweenCFrame(v4294 * CFrame.Angles(0, math.rad(76), 0), TweenInfo.new(v4291));
+                    end;
+                    local v4297 = CFrame.new(0, 0, 0) * CFrame.Angles(-0.6108652381980153, 1.5707963267948966, 0);
+                    local v4298 = v819({
+                        FX = v4016.Spinning, 
+                        Anchor = l_char_11.Torso.CFrame * v4297, 
+                        Maid = v4017._maid
+                    });
+                    local v4299 = v4017._maid:give(Instance.new("NumberValue"));
+                    v4017._maid:giveTask(v4299.Changed:Connect(function()
+                        v4298:ScaleTo(v4299.Value);
+                    end));
+                    v4299.Value = 0.2;
+                    l_TweenService_8:Create(v4299, TweenInfo.new(1, Enum.EasingStyle.Sine), {
+                        Value = 4.8
+                    }):Play();
+                    for _, v4301 in pairs(v4298:GetDescendants()) do
+                        if v4301:IsA("Beam") then
+                            local l_Transparency_3 = v4301.Transparency;
+                            v4301.Transparency = NumberSequence.new({
+                                NumberSequenceKeypoint.new(0, 1), 
+                                NumberSequenceKeypoint.new(1, 1)
+                            });
+                            v774(v4301, {
+                                Time = 0.2, 
+                                EasingStyle = "Sine", 
+                                Goal = {
+                                    Transparency = l_Transparency_3
+                                }
+                            });
+                            v4301.TextureSpeed = -5;
+                            task.delay(0.6, function()
+                                v774(v4301, {
+                                    Time = 0.4, 
+                                    EasingStyle = "Sine", 
+                                    Goal = {
+                                        Transparency = NumberSequence.new({
+                                            NumberSequenceKeypoint.new(0, 1), 
+                                            NumberSequenceKeypoint.new(1, 1)
+                                        })
+                                    }
+                                });
+                                l_TweenService_8:Create(v4301, TweenInfo.new(1.5, Enum.EasingStyle.Sine), {
+                                    TextureSpeed = 0
+                                }):Play();
+                                game.Debris:AddItem(v4301, 0.6);
+                            end);
+                        end;
+                    end;
+                    local l_v819_6 = v819;
+                    local v4304 = {
+                        FX = v4016.Dust
+                    };
+                    local v4305, v4306, v4307 = l_char_11.HumanoidRootPart.CFrame:ToOrientation();
+                    v4304.Anchor = CFrame.new(l_char_11.Torso.Position) * CFrame.Angles(0, v4306, 0) * CFrame.new(0, -l_PrimaryPart_26.Size.Y * 1.5, 0);
+                    v4304.Maid = v4017._maid;
+                    l_v819_6 = l_v819_6(v4304);
+                    l_v819_6:ScaleTo(0.7);
+                    v808({
+                        FX = l_v819_6, 
+                        Scale = 0.5
+                    });
+                    v833(l_v819_6);
+                    task.delay(0.4, function()
+                        for _, v4309 in pairs(v4298:GetDescendants()) do
+                            if v4309:IsA("ParticleEmitter") then
+                                v4309.Enabled = false;
+                            end;
+                        end;
+                    end);
+                    task.spawn(function()
+                        local v4310 = 0;
+                        local v4311 = tick();
+                        while tick() - v4311 < 1 and v4298.PrimaryPart do
+                            local v4312, v4313, v4314 = v4298.PrimaryPart.CFrame:ToOrientation();
+                            v4298.PrimaryPart.CFrame = CFrame.new(l_char_11.Torso.CFrame * v4297.Position) * CFrame.Angles(v4312, v4313, v4314);
+                            v4310 = v4310 + 1;
+                            if v4310 % 4 == 0 then
+                                v4296(CFrame.new(0, 0, 0.1) * CFrame.Angles(0, math.rad((math.random(0, 360))), 0), Color3.fromRGB(223, 122, 8455), 0.2, Vector3.new(4, 17, 4, 0) * v4021:NextNumber(2, 3), 170);
+                            end;
+                            task.wait();
+                        end;
+                    end);
+                    l_wait_6(1);
+                    v4304 = v4016.SpinWind:Clone();
+                    v4304:ScaleTo(1.19);
+                    local v4315 = {
+                        Model = v4304, 
+                        EndT = 1
+                    };
+                    local v4316, v4317;
+                    v4307, v4316, v4317 = l_char_11.HumanoidRootPart.CFrame:ToOrientation();
+                    v4315.Anchor = CFrame.new(l_char_11.Torso.Position) * CFrame.Angles(0, v4316, 0) * CFrame.new(0, 4.8999999999999995, -2) * CFrame.Angles(0, 0, 1.5707963267948966);
+                    v4315.Info = TweenInfo.new(1.0499999999999998, Enum.EasingStyle.Exponential);
+                    local l_v4315_0 = v4315 --[[ copy: 6 -> 23 ]];
+                    task.spawn(function()
+                        local l_Model_92 = l_v4315_0.Model;
+                        local v4320 = l_v4315_0.Info or TweenInfo.new(1, Enum.EasingStyle.Sine);
+                        local l_Start_96 = l_Model_92:FindFirstChild("Start");
+                        local l_End_94 = l_Model_92:FindFirstChild("End");
+                        local l_Stay_91 = l_v4315_0.Stay;
+                        local l_Anchor_92 = l_v4315_0.Anchor;
+                        local v4325 = l_v4315_0.EndT or 1;
+                        local l_Del_91 = l_v4315_0.Del;
+                        local l_Skip_91 = l_v4315_0.Skip;
+                        if l_Start_96 and l_End_94 then
+                            l_Model_92.PrimaryPart = l_Start_96;
+                            if not l_Skip_91 then
+                                for _, v4329 in pairs(l_Model_92:GetChildren()) do
+                                    if v4329:IsA("BasePart") then
+                                        v4329.CanCollide = false;
+                                        v4329.Anchored = true;
+                                    end;
+                                end;
+                            end;
+                             if l_Anchor_92 then
+                                l_Model_92:SetPrimaryPartCFrame(l_Anchor_92);
+                            end;
+                            if l_v4315_0.T then
+                                l_Start_96.Transparency = l_v4315_0.T;
+                            end;
+                            l_End_94.Transparency = 1;
+                            l_Model_92.Parent = workspace.Thrown;
+                            local l_Decal_183 = l_Start_96:FindFirstChildOfClass("Decal");
+                            local l_SpecialMesh_184 = l_Start_96:FindFirstChildOfClass("SpecialMesh");
+                            local l_SpecialMesh_185 = l_End_94:FindFirstChildOfClass("SpecialMesh");
+                            local l_Decal_184 = l_End_94:FindFirstChildOfClass("Decal");
+                            if l_Decal_184 and not l_Skip_91 then
+                                l_Decal_184.Transparency = 1;
+                            end;
+                            local v4334 = nil;
+                            if l_Del_91 then
+                                game:GetService("TweenService"):Create(l_Start_96, v4320, {
+                                    Size = l_End_94.Size, 
+                                    CFrame = l_End_94.CFrame
+                                }):Play();
+                                task.delay(l_Del_91, function()
+                                    v4334 = game:GetService("TweenService"):Create(l_Start_96, v4320, {
+                                        Transparency = v4325
+                                    });
+                                    v4334:Play();
+                                    if l_Decal_183 then
+                                        for _, v4336 in pairs(l_Start_96:GetChildren()) do
+                                            if v4336:IsA("Decal") then
+                                                game:GetService("TweenService"):Create(v4336, v4320, {
+                                                    Transparency = v4325
+                                                }):Play();
+                                            end;
+                                        end;
+                                    end;
+                                    if l_SpecialMesh_184 then
+                                        v4334 = game:GetService("TweenService"):Create(l_SpecialMesh_184, v4320, {
+                                            Scale = l_SpecialMesh_185.Scale
+                                        }):Play();
+                                    end;
+                                end);
+                            else
+                                if l_SpecialMesh_184 then
+                                    game:GetService("TweenService"):Create(l_SpecialMesh_184, v4320, {
+                                        Scale = l_SpecialMesh_185.Scale
+                                    }):Play();
+                                end;
+                                if l_Decal_183 then
+                                    for _, v4338 in pairs(l_Start_96:GetChildren()) do
+                                        if v4338:IsA("Decal") then
+                                            game:GetService("TweenService"):Create(v4338, v4320, {
+                                                Transparency = v4325
+                                            }):Play();
+                                        end;
+                                    end;
+                                    v4334 = game:GetService("TweenService"):Create(l_Start_96, v4320, {
+                                        Size = l_End_94.Size, 
+                                        CFrame = l_End_94.CFrame
+                                    });
+                                    v4334:Play();
+                                else
+                                    v4334 = game:GetService("TweenService"):Create(l_Start_96, v4320, {
+                                        Size = l_End_94.Size, 
+                                        Transparency = v4325, 
+                                        CFrame = l_End_94.CFrame
+                                    });
+                                    v4334:Play();
+                                end;
+                            end;
+                            if not l_Stay_91 then
+                                if l_Del_91 then
+                                    task.wait(l_Del_91 + 0.1);
+                                end;
+                                v4334.Completed:Connect(function()
+                                    l_Model_92:Destroy();
+                                end);
+                            end;
+                            return ;
+                        else
+                            warn("NO START OR END");
+                            return ;
+                        end;
+                    end);
+                    v4315 = v4016.SpinWind:Clone();
+                    v4315:ScaleTo(1.19);
+                    local v4339 = {
+                        Model = v4315, 
+                        EndT = 1
+                    };
+                    local v4340;
+                    v4316, v4317, v4340 = l_char_11.HumanoidRootPart.CFrame:ToOrientation();
+                    v4339.Anchor = CFrame.new(l_char_11.Torso.Position) * CFrame.Angles(0, v4317, 0) * CFrame.new(0, 11.2, -2) * CFrame.Angles(0, 0, 1.5707963267948966);
+                    v4339.Info = TweenInfo.new(1.0499999999999998, Enum.EasingStyle.Exponential);
+                    local l_v4339_0 = v4339 --[[ copy: 7 -> 24 ]];
+                    task.spawn(function()
+                        local l_Model_93 = l_v4339_0.Model;
+                        local v4343 = l_v4339_0.Info or TweenInfo.new(1, Enum.EasingStyle.Sine);
+                        local l_Start_97 = l_Model_93:FindFirstChild("Start");
+                        local l_End_95 = l_Model_93:FindFirstChild("End");
+                        local l_Stay_92 = l_v4339_0.Stay;
+                        local l_Anchor_93 = l_v4339_0.Anchor;
+                        local v4348 = l_v4339_0.EndT or 1;
+                        local l_Del_92 = l_v4339_0.Del;
+                        local l_Skip_92 = l_v4339_0.Skip;
+                        if l_Start_97 and l_End_95 then
+                            l_Model_93.PrimaryPart = l_Start_97;
+                            if not l_Skip_92 then
+                                for _, v4352 in pairs(l_Model_93:GetChildren()) do
+                                    if v4352:IsA("BasePart") then
+                                        v4352.CanCollide = false;
+                                        v4352.Anchored = true;
+                                    end;
+                                end;
+                            end;
+                            if l_Anchor_93 then
+                                l_Model_93:SetPrimaryPartCFrame(l_Anchor_93);
+                            end;
+                            if l_v4339_0.T then
+                                l_Start_97.Transparency = l_v4339_0.T;
+                            end;
+                            l_End_95.Transparency = 1;
+                            l_Model_93.Parent = workspace.Thrown;
+                            local l_Decal_185 = l_Start_97:FindFirstChildOfClass("Decal");
+                            local l_SpecialMesh_186 = l_Start_97:FindFirstChildOfClass("SpecialMesh");
+                            local l_SpecialMesh_187 = l_End_95:FindFirstChildOfClass("SpecialMesh");
+                            local l_Decal_186 = l_End_95:FindFirstChildOfClass("Decal");
+                            if l_Decal_186 and not l_Skip_92 then
+                                l_Decal_186.Transparency = 1;
+                            end;
+                            local v4357 = nil;
+                            if l_Del_92 then
+                                game:GetService("TweenService"):Create(l_Start_97, v4343, {
+                                    Size = l_End_95.Size, 
+                                    CFrame = l_End_95.CFrame
+                                }):Play();
+                                task.delay(l_Del_92, function()
+                                    v4357 = game:GetService("TweenService"):Create(l_Start_97, v4343, {
+                                        Transparency = v4348
+                                    });
+                                    v4357:Play();
+                                    if l_Decal_185 then
+                                        for _, v4359 in pairs(l_Start_97:GetChildren()) do
+                                            if v4359:IsA("Decal") then
+                                                game:GetService("TweenService"):Create(v4359, v4343, {
+                                                    Transparency = v4348
+                                                }):Play();
+                                            end;
+                                        end;
+                                    end;
+                                    if l_SpecialMesh_186 then
+                                        v4357 = game:GetService("TweenService"):Create(l_SpecialMesh_186, v4343, {
+                                            Scale = l_SpecialMesh_187.Scale
+                                        }):Play();
+                                    end;
+                                end);
+                            else
+                                if l_SpecialMesh_186 then
+                                    game:GetService("TweenService"):Create(l_SpecialMesh_186, v4343, {
+                                        Scale = l_SpecialMesh_187.Scale
+                                    }):Play();
+                                end;
+                                if l_Decal_185 then
+                                    for _, v4361 in pairs(l_Start_97:GetChildren()) do
+                                        if v4361:IsA("Decal") then
+                                            game:GetService("TweenService"):Create(v4361, v4343, {
+                                                Transparency = v4348
+                                            }):Play();
+                                        end;
+                                    end;
+                                    v4357 = game:GetService("TweenService"):Create(l_Start_97, v4343, {
+                                        Size = l_End_95.Size, 
+                                        CFrame = l_End_95.CFrame
+                                    });
+                                    v4357:Play();
+                                else
+                                    v4357 = game:GetService("TweenService"):Create(l_Start_97, v4343, {
+                                        Size = l_End_95.Size, 
+                                        Transparency = v4348, 
+                                        CFrame = l_End_95.CFrame
+                                    });
+                                    v4357:Play();
+                                end;
+                            end;
+                            if not l_Stay_92 then
+                                if l_Del_92 then
+                                    task.wait(l_Del_92 + 0.1);
+                                end;
+                                v4357.Completed:Connect(function()
+                                    l_Model_93:Destroy();
+                                end);
+                            end;
+                            return ;
+                        else
+                            warn("NO START OR END");
+                            return ;
+                        end;
+                    end);
+                    v4339 = v4016.SpinWind:Clone();
+                    v4339:ScaleTo(1.19);
+                    v4305 = {
+                        Model = v4339, 
+                        EndT = 1
+                    };
+                    local v4362;
+                    v4317, v4340, v4362 = l_char_11.HumanoidRootPart.CFrame:ToOrientation();
+                    v4305.Anchor = CFrame.new(l_char_11.Torso.Position) * CFrame.Angles(0, v4340, 0) * CFrame.new(0, 9.799999999999999, -2) * CFrame.Angles(0, 0, 1.5707963267948966);
+                    v4305.Info = TweenInfo.new(2.55, Enum.EasingStyle.Exponential);
+                    local l_v4305_0 = v4305 --[[ copy: 8 -> 25 ]];
+                    task.spawn(function()
+                        local l_Model_94 = l_v4305_0.Model;
+                        local v4365 = l_v4305_0.Info or TweenInfo.new(1, Enum.EasingStyle.Sine);
+                        local l_Start_98 = l_Model_94:FindFirstChild("Start");
+                        local l_End_96 = l_Model_94:FindFirstChild("End");
+                        local l_Stay_93 = l_v4305_0.Stay;
+                        local l_Anchor_94 = l_v4305_0.Anchor;
+                        local v4370 = l_v4305_0.EndT or 1;
+                        local l_Del_93 = l_v4305_0.Del;
+                        local l_Skip_93 = l_v4305_0.Skip;
+                        if l_Start_98 and l_End_96 then
+                            l_Model_94.PrimaryPart = l_Start_98;
+                            if not l_Skip_93 then
+                                for _, v4374 in pairs(l_Model_94:GetChildren()) do
+                                    if v4374:IsA("BasePart") then
+                                        v4374.CanCollide = false;
+                                        v4374.Anchored = true;
+                                    end;
+                                end;
+                            end;
+                            if l_Anchor_94 then
+                                l_Model_94:SetPrimaryPartCFrame(l_Anchor_94);
+                            end;
+                            if l_v4305_0.T then
+                                l_Start_98.Transparency = l_v4305_0.T;
+                            end;
+                            l_End_96.Transparency = 1;
+                            l_Model_94.Parent = workspace.Thrown;
+                            local l_Decal_187 = l_Start_98:FindFirstChildOfClass("Decal");
+                            local l_SpecialMesh_188 = l_Start_98:FindFirstChildOfClass("SpecialMesh");
+                            local l_SpecialMesh_189 = l_End_96:FindFirstChildOfClass("SpecialMesh");
+                            local l_Decal_188 = l_End_96:FindFirstChildOfClass("Decal");
+                            if l_Decal_188 and not l_Skip_93 then
+                                l_Decal_188.Transparency = 1;
+                            end;
+                            local v4379 = nil;
+                            if l_Del_93 then
+                                game:GetService("TweenService"):Create(l_Start_98, v4365, {
+                                    Size = l_End_96.Size, 
+                                    CFrame = l_End_96.CFrame
+                                }):Play();
+                                task.delay(l_Del_93, function()
+                                    v4379 = game:GetService("TweenService"):Create(l_Start_98, v4365, {
+                                        Transparency = v4370
+                                    });
+                                    v4379:Play();
+                                    if l_Decal_187 then
+                                        for _, v4381 in pairs(l_Start_98:GetChildren()) do
+                                            if v4381:IsA("Decal") then
+                                                game:GetService("TweenService"):Create(v4381, v4365, {
+                                                    Transparency = v4370
+                                                }):Play();
+                                            end;
+                                        end;
+                                    end;
+                                    if l_SpecialMesh_188 then
+                                        v4379 = game:GetService("TweenService"):Create(l_SpecialMesh_188, v4365, {
+                                            Scale = l_SpecialMesh_189.Scale
+                                        }):Play();
+                                    end;
+                                end);
+                            else
+                                if l_SpecialMesh_188 then
+                                    game:GetService("TweenService"):Create(l_SpecialMesh_188, v4365, {
+                                        Scale = l_SpecialMesh_189.Scale
+                                    }):Play();
+                                end;
+                                if l_Decal_187 then
+                                    for _, v4383 in pairs(l_Start_98:GetChildren()) do
+                                        if v4383:IsA("Decal") then
+                                            game:GetService("TweenService"):Create(v4383, v4365, {
+                                                Transparency = v4370
+                                            }):Play();
+                                        end;
+                                    end;
+                                    v4379 = game:GetService("TweenService"):Create(l_Start_98, v4365, {
+                                        Size = l_End_96.Size, 
+                                        CFrame = l_End_96.CFrame
+                                    });
+                                    v4379:Play();
+                                else
+                                    v4379 = game:GetService("TweenService"):Create(l_Start_98, v4365, {
+                                        Size = l_End_96.Size, 
+                                        Transparency = v4370, 
+                                        CFrame = l_End_96.CFrame
+                                    });
+                                    v4379:Play();
+                                end;
+                            end;
+                            if not l_Stay_93 then
+                                if l_Del_93 then
+                                    task.wait(l_Del_93 + 0.1);
+                                end;
+                                v4379.Completed:Connect(function()
+                                    l_Model_94:Destroy();
+                                end);
+                            end;
+                            return ;
+                        else
+                            warn("NO START OR END");
+                            return ;
+                        end;
+                    end);
+                    v4305 = v4016.Thing4:Clone();
+                    v4305:ScaleTo(2.0999999999999996);
+                    v4306 = {
+                        Model = v4305, 
+                        EndT = 1
+                    };
+                    local v4384;
+                    v4340, v4362, v4384 = l_char_11.HumanoidRootPart.CFrame:ToOrientation();
+                    v4306.Anchor = CFrame.new(l_char_11.Torso.Position) * CFrame.Angles(0, v4362, 0) * CFrame.new(0, 0.7, -2) * CFrame.Angles(0, 0, -1.5707963267948966);
+                    v4306.Info = TweenInfo.new(1.7999999999999998, Enum.EasingStyle.Exponential);
+                    local l_v4306_0 = v4306 --[[ copy: 9 -> 26 ]];
+                    task.spawn(function()
+                        local l_Model_95 = l_v4306_0.Model;
+                        local v4387 = l_v4306_0.Info or TweenInfo.new(1, Enum.EasingStyle.Sine);
+                        local l_Start_99 = l_Model_95:FindFirstChild("Start");
+                        local l_End_97 = l_Model_95:FindFirstChild("End");
+                        local l_Stay_94 = l_v4306_0.Stay;
+                        local l_Anchor_95 = l_v4306_0.Anchor;
+                        local v4392 = l_v4306_0.EndT or 1;
+                        local l_Del_94 = l_v4306_0.Del;
+                        local l_Skip_94 = l_v4306_0.Skip;
+                        if l_Start_99 and l_End_97 then
+                            l_Model_95.PrimaryPart = l_Start_99;
+                            if not l_Skip_94 then
+                                for _, v4396 in pairs(l_Model_95:GetChildren()) do
+                                    if v4396:IsA("BasePart") then
+                                        v4396.CanCollide = false;
+                                        v4396.Anchored = true;
+                                    end;
+                                end;
+                            end;
+                            if l_Anchor_95 then
+                                l_Model_95:SetPrimaryPartCFrame(l_Anchor_95);
+                            end;
+                            if l_v4306_0.T then
+                                l_Start_99.Transparency = l_v4306_0.T;
+                            end;
+                            l_End_97.Transparency = 1;
+                            l_Model_95.Parent = workspace.Thrown;
+                            local l_Decal_189 = l_Start_99:FindFirstChildOfClass("Decal");
+                            local l_SpecialMesh_190 = l_Start_99:FindFirstChildOfClass("SpecialMesh");
+                            local l_SpecialMesh_191 = l_End_97:FindFirstChildOfClass("SpecialMesh");
+                            local l_Decal_190 = l_End_97:FindFirstChildOfClass("Decal");
+                            if l_Decal_190 and not l_Skip_94 then
+                                l_Decal_190.Transparency = 1;
+                            end;
+                            local v4401 = nil;
+                            if l_Del_94 then
+                                game:GetService("TweenService"):Create(l_Start_99, v4387, {
+                                    Size = l_End_97.Size, 
+                                    CFrame = l_End_97.CFrame
+                                }):Play();
+                                task.delay(l_Del_94, function()
+                                    v4401 = game:GetService("TweenService"):Create(l_Start_99, v4387, {
+                                        Transparency = v4392
+                                    });
+                                    v4401:Play();
+                                    if l_Decal_189 then
+                                        for _, v4403 in pairs(l_Start_99:GetChildren()) do
+                                            if v4403:IsA("Decal") then
+                                                game:GetService("TweenService"):Create(v4403, v4387, {
+                                                    Transparency = v4392
+                                                }):Play();
+                                            end;
+                                        end;
+                                    end;
+                                    if l_SpecialMesh_190 then
+                                        v4401 = game:GetService("TweenService"):Create(l_SpecialMesh_190, v4387, {
+                                            Scale = l_SpecialMesh_191.Scale
+                                        }):Play();
+                                    end;
+                                end);
+                            else
+                                if l_SpecialMesh_190 then
+                                    game:GetService("TweenService"):Create(l_SpecialMesh_190, v4387, {
+                                        Scale = l_SpecialMesh_191.Scale
+                                    }):Play();
+                                end;
+                                if l_Decal_189 then
+                                    for _, v4405 in pairs(l_Start_99:GetChildren()) do
+                                        if v4405:IsA("Decal") then
+                                            game:GetService("TweenService"):Create(v4405, v4387, {
+                                                Transparency = v4392
+                                            }):Play();
+                                        end;
+                                    end;
+                                    v4401 = game:GetService("TweenService"):Create(l_Start_99, v4387, {
+                                        Size = l_End_97.Size, 
+                                        CFrame = l_End_97.CFrame
+                                    });
+                                    v4401:Play();
+                                else
+                                    v4401 = game:GetService("TweenService"):Create(l_Start_99, v4387, {
+                                        Size = l_End_97.Size, 
+                                        Transparency = v4392, 
+                                        CFrame = l_End_97.CFrame
+                                    });
+                                    v4401:Play();
+                                end;
+                            end;
+                            if not l_Stay_94 then
+                                if l_Del_94 then
+                                    task.wait(l_Del_94 + 0.1);
+                                end;
+                                v4401.Completed:Connect(function()
+                                    l_Model_95:Destroy();
+                                end);
+                            end;
+                            return ;
+                        else
+                            warn("NO START OR END");
+                            return ;
+                        end;
+                    end);
+                    v4306 = v4016.Bright:Clone();
+                    v4306:ScaleTo(4.199999999999999);
+                    v4307 = {
+                        Model = v4306, 
+                        EndT = 1
+                    };
+                    local v4406;
+                    v4362, v4384, v4406 = l_char_11.HumanoidRootPart.CFrame:ToOrientation();
+                    v4307.Anchor = CFrame.new(l_char_11.Torso.Position) * CFrame.Angles(0, v4384, 0) * CFrame.new(0, 4.199999999999999, -2) * CFrame.Angles(0, 0, 0);
+                    v4307.Info = TweenInfo.new(1.7999999999999998, Enum.EasingStyle.Exponential);
+                    local l_v4307_0 = v4307 --[[ copy: 10 -> 27 ]];
+                    task.spawn(function()
+                        local l_Model_96 = l_v4307_0.Model;
+                        local v4409 = l_v4307_0.Info or TweenInfo.new(1, Enum.EasingStyle.Sine);
+                        local l_Start_100 = l_Model_96:FindFirstChild("Start");
+                        local l_End_98 = l_Model_96:FindFirstChild("End");
+                        local l_Stay_95 = l_v4307_0.Stay;
+                        local l_Anchor_96 = l_v4307_0.Anchor;
+                        local v4414 = l_v4307_0.EndT or 1;
+                        local l_Del_95 = l_v4307_0.Del;
+                        local l_Skip_95 = l_v4307_0.Skip;
+                        if l_Start_100 and l_End_98 then
+                            l_Model_96.PrimaryPart = l_Start_100;
+                            if not l_Skip_95 then
+                                for _, v4418 in pairs(l_Model_96:GetChildren()) do
+                                    if v4418:IsA("BasePart") then
+                                        v4418.CanCollide = false;
+                                        v4418.Anchored = true;
+                                    end;
+                                end;
+                            end;
+                            if l_Anchor_96 then
+                                l_Model_96:SetPrimaryPartCFrame(l_Anchor_96);
+                            end;
+                            if l_v4307_0.T then
+                                l_Start_100.Transparency = l_v4307_0.T;
+                            end;
+                            l_End_98.Transparency = 1;
+                            l_Model_96.Parent = workspace.Thrown;
+                            local l_Decal_191 = l_Start_100:FindFirstChildOfClass("Decal");
+                            local l_SpecialMesh_192 = l_Start_100:FindFirstChildOfClass("SpecialMesh");
+                            local l_SpecialMesh_193 = l_End_98:FindFirstChildOfClass("SpecialMesh");
+                            local l_Decal_192 = l_End_98:FindFirstChildOfClass("Decal");
+                            if l_Decal_192 and not l_Skip_95 then
+                                l_Decal_192.Transparency = 1;
+                            end;
+                            local v4423 = nil;
+                            if l_Del_95 then
+                                game:GetService("TweenService"):Create(l_Start_100, v4409, {
+                                    Size = l_End_98.Size, 
+                                    CFrame = l_End_98.CFrame
+                                }):Play();
+                                task.delay(l_Del_95, function()
+                                    v4423 = game:GetService("TweenService"):Create(l_Start_100, v4409, {
+                                        Transparency = v4414
+                                    });
+                                    v4423:Play();
+                                    if l_Decal_191 then
+                                        for _, v4425 in pairs(l_Start_100:GetChildren()) do
+                                            if v4425:IsA("Decal") then
+                                                game:GetService("TweenService"):Create(v4425, v4409, {
+                                                    Transparency = v4414
+                                                }):Play();
+                                            end;
+                                        end;
+                                    end;
+                                    if l_SpecialMesh_192 then
+                                        v4423 = game:GetService("TweenService"):Create(l_SpecialMesh_192, v4409, {
+                                            Scale = l_SpecialMesh_193.Scale
+                                        }):Play();
+                                    end;
+                                end);
+                            else
+                                if l_SpecialMesh_192 then
+                                    game:GetService("TweenService"):Create(l_SpecialMesh_192, v4409, {
+                                        Scale = l_SpecialMesh_193.Scale
+                                    }):Play();
+                                end;
+                                if l_Decal_191 then
+                                    for _, v4427 in pairs(l_Start_100:GetChildren()) do
+                                        if v4427:IsA("Decal") then
+                                            game:GetService("TweenService"):Create(v4427, v4409, {
+                                                Transparency = v4414
+                                            }):Play();
+                                        end;
+                                    end;
+                                    v4423 = game:GetService("TweenService"):Create(l_Start_100, v4409, {
+                                        Size = l_End_98.Size, 
+                                        CFrame = l_End_98.CFrame
+                                    });
+                                    v4423:Play();
+                                else
+                                    v4423 = game:GetService("TweenService"):Create(l_Start_100, v4409, {
+                                        Size = l_End_98.Size, 
+                                        Transparency = v4414, 
+                                        CFrame = l_End_98.CFrame
+                                    });
+                                    v4423:Play();
+                                end;
+                            end;
+                            if not l_Stay_95 then
+                                if l_Del_95 then
+                                    task.wait(l_Del_95 + 0.1);
+                                end;
+                                v4423.Completed:Connect(function()
+                                    l_Model_96:Destroy();
+                                end);
+                            end;
+                            return ;
+                        else
+                            warn("NO START OR END");
+                            return ;
+                        end;
+                    end);
+                    v4307 = v4016.Bright2:Clone();
+                    v4307:ScaleTo(2.8);
+                    v4316 = {
+                        Model = v4307, 
+                        EndT = 1
+                    };
+                    local v4428;
+                    v4384, v4406, v4428 = l_char_11.HumanoidRootPart.CFrame:ToOrientation();
+                    v4316.Anchor = CFrame.new(l_char_11.Torso.Position) * CFrame.Angles(0, v4406, 0) * CFrame.new(0, 0.7, -2) * CFrame.Angles(0, 0, 0);
+                    v4316.Info = TweenInfo.new(3.3000000000000003, Enum.EasingStyle.Exponential);
+                    local l_v4316_0 = v4316 --[[ copy: 11 -> 28 ]];
+                    task.spawn(function()
+                        local l_Model_97 = l_v4316_0.Model;
+                        local v4431 = l_v4316_0.Info or TweenInfo.new(1, Enum.EasingStyle.Sine);
+                        local l_Start_101 = l_Model_97:FindFirstChild("Start");
+                        local l_End_99 = l_Model_97:FindFirstChild("End");
+                        local l_Stay_96 = l_v4316_0.Stay;
+                        local l_Anchor_97 = l_v4316_0.Anchor;
+                        local v4436 = l_v4316_0.EndT or 1;
+                        local l_Del_96 = l_v4316_0.Del;
+                        local l_Skip_96 = l_v4316_0.Skip;
+                        if l_Start_101 and l_End_99 then
+                            l_Model_97.PrimaryPart = l_Start_101;
+                            if not l_Skip_96 then
+                                for _, v4440 in pairs(l_Model_97:GetChildren()) do
+                                    if v4440:IsA("BasePart") then
+                                        v4440.CanCollide = false;
+                                        v4440.Anchored = true;
+                                    end;
+                                end;
+                            end;
+                            if l_Anchor_97 then
+                                l_Model_97:SetPrimaryPartCFrame(l_Anchor_97);
+                            end;
+                            if l_v4316_0.T then
+                                l_Start_101.Transparency = l_v4316_0.T;
+                            end;
+                            l_End_99.Transparency = 1;
+                            l_Model_97.Parent = workspace.Thrown;
+                            local l_Decal_193 = l_Start_101:FindFirstChildOfClass("Decal");
+                            local l_SpecialMesh_194 = l_Start_101:FindFirstChildOfClass("SpecialMesh");
+                            local l_SpecialMesh_195 = l_End_99:FindFirstChildOfClass("SpecialMesh");
+                            local l_Decal_194 = l_End_99:FindFirstChildOfClass("Decal");
+                            if l_Decal_194 and not l_Skip_96 then
+                                l_Decal_194.Transparency = 1;
+                            end;
+                            local v4445 = nil;
+                            if l_Del_96 then
+                                game:GetService("TweenService"):Create(l_Start_101, v4431, {
+                                    Size = l_End_99.Size, 
+                                    CFrame = l_End_99.CFrame
+                                }):Play();
+                                task.delay(l_Del_96, function()
+                                    v4445 = game:GetService("TweenService"):Create(l_Start_101, v4431, {
+                                        Transparency = v4436
+                                    });
+                                    v4445:Play();
+                                    if l_Decal_193 then
+                                        for _, v4447 in pairs(l_Start_101:GetChildren()) do
+                                            if v4447:IsA("Decal") then
+                                                game:GetService("TweenService"):Create(v4447, v4431, {
+                                                    Transparency = v4436
+                                                }):Play();
+                                            end;
+                                        end;
+                                    end;
+                                    if l_SpecialMesh_194 then
+                                        v4445 = game:GetService("TweenService"):Create(l_SpecialMesh_194, v4431, {
+                                            Scale = l_SpecialMesh_195.Scale
+                                        }):Play();
+                                    end;
+                                end);
+                            else
+                                if l_SpecialMesh_194 then
+                                    game:GetService("TweenService"):Create(l_SpecialMesh_194, v4431, {
+                                        Scale = l_SpecialMesh_195.Scale
+                                    }):Play();
+                                end;
+                                if l_Decal_193 then
+                                    for _, v4449 in pairs(l_Start_101:GetChildren()) do
+                                        if v4449:IsA("Decal") then
+                                            game:GetService("TweenService"):Create(v4449, v4431, {
+                                                Transparency = v4436
+                                            }):Play();
+                                        end;
+                                    end;
+                                    v4445 = game:GetService("TweenService"):Create(l_Start_101, v4431, {
+                                        Size = l_End_99.Size, 
+                                        CFrame = l_End_99.CFrame
+                                    });
+                                    v4445:Play();
+                                else
+                                    v4445 = game:GetService("TweenService"):Create(l_Start_101, v4431, {
+                                        Size = l_End_99.Size, 
+                                        Transparency = v4436, 
+                                        CFrame = l_End_99.CFrame
+                                    });
+                                    v4445:Play();
+                                end;
+                            end;
+                            if not l_Stay_96 then
+                                if l_Del_96 then
+                                    task.wait(l_Del_96 + 0.1);
+                                end;
+                                v4445.Completed:Connect(function()
+                                    l_Model_97:Destroy();
+                                end);
+                            end;
+                            return ;
+                        else
+                            warn("NO START OR END");
+                            return ;
+                        end;
+                    end);
+                    v4316 = v4016.Grad:Clone();
+                    v4316:ScaleTo(0.7);
+                    v4317 = {
+                        Model = v4316, 
+                        EndT = 1
+                    };
+                    local v4450;
+                    v4406, v4428, v4450 = l_char_11.HumanoidRootPart.CFrame:ToOrientation();
+                    v4317.Anchor = CFrame.new(l_char_11.Torso.Position) * CFrame.Angles(0, v4428, 0) * CFrame.new(0, 4.8999999999999995, -2) * CFrame.Angles(0, 0, 1.5707963267948966);
+                    v4317.Info = TweenInfo.new(2.4000000000000004, Enum.EasingStyle.Exponential);
+                    local l_v4317_0 = v4317 --[[ copy: 12 -> 29 ]];
+                    task.spawn(function()
+                        local l_Model_98 = l_v4317_0.Model;
+                        local v4453 = l_v4317_0.Info or TweenInfo.new(1, Enum.EasingStyle.Sine);
+                        local l_Start_102 = l_Model_98:FindFirstChild("Start");
+                        local l_End_100 = l_Model_98:FindFirstChild("End");
+                        local l_Stay_97 = l_v4317_0.Stay;
+                        local l_Anchor_98 = l_v4317_0.Anchor;
+                        local v4458 = l_v4317_0.EndT or 1;
+                        local l_Del_97 = l_v4317_0.Del;
+                        local l_Skip_97 = l_v4317_0.Skip;
+                        if l_Start_102 and l_End_100 then
+                            l_Model_98.PrimaryPart = l_Start_102;
+                            if not l_Skip_97 then
+                                for _, v4462 in pairs(l_Model_98:GetChildren()) do
+                                    if v4462:IsA("BasePart") then
+                                        v4462.CanCollide = false;
+                                        v4462.Anchored = true;
+                                    end;
+                                end;
+                            end;
+                            if l_Anchor_98 then
+                                l_Model_98:SetPrimaryPartCFrame(l_Anchor_98);
+                            end;
+                            if l_v4317_0.T then
+                                l_Start_102.Transparency = l_v4317_0.T;
+                            end;
+                            l_End_100.Transparency = 1;
+                            l_Model_98.Parent = workspace.Thrown;
+                            local l_Decal_195 = l_Start_102:FindFirstChildOfClass("Decal");
+                            local l_SpecialMesh_196 = l_Start_102:FindFirstChildOfClass("SpecialMesh");
+                            local l_SpecialMesh_197 = l_End_100:FindFirstChildOfClass("SpecialMesh");
+                            local l_Decal_196 = l_End_100:FindFirstChildOfClass("Decal");
+                            if l_Decal_196 and not l_Skip_97 then
+                                l_Decal_196.Transparency = 1;
+                            end;
+                            local v4467 = nil;
+                            if l_Del_97 then
+                                game:GetService("TweenService"):Create(l_Start_102, v4453, {
+                                    Size = l_End_100.Size, 
+                                    CFrame = l_End_100.CFrame
+                                }):Play();
+                                task.delay(l_Del_97, function()
+                                    v4467 = game:GetService("TweenService"):Create(l_Start_102, v4453, {
+                                        Transparency = v4458
+                                    });
+                                    v4467:Play();
+                                    if l_Decal_195 then
+                                        for _, v4469 in pairs(l_Start_102:GetChildren()) do
+                                            if v4469:IsA("Decal") then
+                                                game:GetService("TweenService"):Create(v4469, v4453, {
+                                                    Transparency = v4458
+                                                }):Play();
+                                            end;
+                                        end;
+                                    end;
+                                    if l_SpecialMesh_196 then
+                                        v4467 = game:GetService("TweenService"):Create(l_SpecialMesh_196, v4453, {
+                                            Scale = l_SpecialMesh_197.Scale
+                                        }):Play();
+                                    end;
+                                end);
+                            else
+                                if l_SpecialMesh_196 then
+                                    game:GetService("TweenService"):Create(l_SpecialMesh_196, v4453, {
+                                        Scale = l_SpecialMesh_197.Scale
+                                    }):Play();
+                                end;
+                                if l_Decal_195 then
+                                    for _, v4471 in pairs(l_Start_102:GetChildren()) do
+                                        if v4471:IsA("Decal") then
+                                            game:GetService("TweenService"):Create(v4471, v4453, {
+                                                Transparency = v4458
+                                            }):Play();
+                                        end;
+                                    end;
+                                    v4467 = game:GetService("TweenService"):Create(l_Start_102, v4453, {
+                                        Size = l_End_100.Size, 
+                                        CFrame = l_End_100.CFrame
+                                    });
+                                    v4467:Play();
+                                else
+                                    v4467 = game:GetService("TweenService"):Create(l_Start_102, v4453, {
+                                        Size = l_End_100.Size, 
+                                        Transparency = v4458, 
+                                        CFrame = l_End_100.CFrame
+                                    });
+                                    v4467:Play();
+                                end;
+                            end;
+                            if not l_Stay_97 then
+                                if l_Del_97 then
+                                    task.wait(l_Del_97 + 0.1);
+                                end;
+                                v4467.Completed:Connect(function()
+                                    l_Model_98:Destroy();
+                                end);
+                            end;
+                            return ;
+                        else
+                            warn("NO START OR END");
+                            return ;
+                        end;
+                    end);
+                    v4317 = v4016.Linger3:Clone();
+                    v4317:ScaleTo(2.0999999999999996);
+                    v4340 = {
+                        Model = v4317, 
+                        EndT = 1
+                    };
+                    local v4472;
+                    v4428, v4450, v4472 = l_char_11.HumanoidRootPart.CFrame:ToOrientation();
+                    v4340.Anchor = CFrame.new(l_char_11.Torso.Position) * CFrame.Angles(0, v4450, 0) * CFrame.new(0, 11.899999999999999, -2) * CFrame.Angles(0, 0, 1.5707963267948966);
+                    v4340.Info = TweenInfo.new(2.4000000000000004, Enum.EasingStyle.Exponential);
+                    local l_v4340_0 = v4340 --[[ copy: 13 -> 30 ]];
+                    task.spawn(function()
+                        local l_Model_99 = l_v4340_0.Model;
+                        local v4475 = l_v4340_0.Info or TweenInfo.new(1, Enum.EasingStyle.Sine);
+                        local l_Start_103 = l_Model_99:FindFirstChild("Start");
+                        local l_End_101 = l_Model_99:FindFirstChild("End");
+                        local l_Stay_98 = l_v4340_0.Stay;
+                        local l_Anchor_99 = l_v4340_0.Anchor;
+                        local v4480 = l_v4340_0.EndT or 1;
+                        local l_Del_98 = l_v4340_0.Del;
+                        local l_Skip_98 = l_v4340_0.Skip;
+                        if l_Start_103 and l_End_101 then
+                            l_Model_99.PrimaryPart = l_Start_103;
+                            if not l_Skip_98 then
+                                for _, v4484 in pairs(l_Model_99:GetChildren()) do
+                                    if v4484:IsA("BasePart") then
+                                        v4484.CanCollide = false;
+                                        v4484.Anchored = true;
+                                    end;
+                                end;
+                            end;
+                            if l_Anchor_99 then
+                                l_Model_99:SetPrimaryPartCFrame(l_Anchor_99);
+                            end;
+                            if l_v4340_0.T then
+                                l_Start_103.Transparency = l_v4340_0.T;
+                            end;
+                            l_End_101.Transparency = 1;
+                            l_Model_99.Parent = workspace.Thrown;
+                            local l_Decal_197 = l_Start_103:FindFirstChildOfClass("Decal");
+                            local l_SpecialMesh_198 = l_Start_103:FindFirstChildOfClass("SpecialMesh");
+                            local l_SpecialMesh_199 = l_End_101:FindFirstChildOfClass("SpecialMesh");
+                            local l_Decal_198 = l_End_101:FindFirstChildOfClass("Decal");
+                            if l_Decal_198 and not l_Skip_98 then
+                                l_Decal_198.Transparency = 1;
+                            end;
+                            local v4489 = nil;
+                            if l_Del_98 then
+                                game:GetService("TweenService"):Create(l_Start_103, v4475, {
+                                    Size = l_End_101.Size, 
+                                    CFrame = l_End_101.CFrame
+                                }):Play();
+                                task.delay(l_Del_98, function()
+                                    v4489 = game:GetService("TweenService"):Create(l_Start_103, v4475, {
+                                        Transparency = v4480
+                                    });
+                                    v4489:Play();
+                                    if l_Decal_197 then
+                                        for _, v4491 in pairs(l_Start_103:GetChildren()) do
+                                            if v4491:IsA("Decal") then
+                                                game:GetService("TweenService"):Create(v4491, v4475, {
+                                                    Transparency = v4480
+                                                }):Play();
+                                            end;
+                                        end;
+                                    end;
+                                    if l_SpecialMesh_198 then
+                                        v4489 = game:GetService("TweenService"):Create(l_SpecialMesh_198, v4475, {
+                                            Scale = l_SpecialMesh_199.Scale
+                                        }):Play();
+                                    end;
+                                end);
+                            else
+                                if l_SpecialMesh_198 then
+                                    game:GetService("TweenService"):Create(l_SpecialMesh_198, v4475, {
+                                        Scale = l_SpecialMesh_199.Scale
+                                    }):Play();
+                                end;
+                                if l_Decal_197 then
+                                    for _, v4493 in pairs(l_Start_103:GetChildren()) do
+                                        if v4493:IsA("Decal") then
+                                            game:GetService("TweenService"):Create(v4493, v4475, {
+                                                Transparency = v4480
+                                            }):Play();
+                                        end;
+                                    end;
+                                    v4489 = game:GetService("TweenService"):Create(l_Start_103, v4475, {
+                                        Size = l_End_101.Size, 
+                                        CFrame = l_End_101.CFrame
+                                    });
+                                    v4489:Play();
+                                else
+                                    v4489 = game:GetService("TweenService"):Create(l_Start_103, v4475, {
+                                        Size = l_End_101.Size, 
+                                        Transparency = v4480, 
+                                        CFrame = l_End_101.CFrame
+                                    });
+                                    v4489:Play();
+                                end;
+                            end;
+                            if not l_Stay_98 then
+                                if l_Del_98 then
+                                    task.wait(l_Del_98 + 0.1);
+                                end;
+                                v4489.Completed:Connect(function()
+                                    l_Model_99:Destroy();
+                                end);
+                            end;
+                            return ;
+                        else
+                            warn("NO START OR END");
+                            return ;
+                        end;
+                    end);
+                    v4340 = v4016.Final:Clone();
+                    v4340:ScaleTo(0.9099999999999999);
+                    v4362 = {
+                        Model = v4340
+                    };
+                    local v4494;
+                    v4450, v4472, v4494 = l_char_11.HumanoidRootPart.CFrame:ToOrientation();
+                    v4362.Anchor = CFrame.new(l_char_11.Torso.Position) * CFrame.Angles(0, v4472, 0) * CFrame.new(0, 6.3, -2) * CFrame.Angles(0, 0, 1.5707963267948966);
+                    v4362.Info = TweenInfo.new(2.4000000000000004, Enum.EasingStyle.Exponential);
+                    local l_v4362_0 = v4362 --[[ copy: 14 -> 31 ]];
+                    task.spawn(function()
+                        local l_Model_100 = l_v4362_0.Model;
+                        local v4497 = l_v4362_0.Info or TweenInfo.new(1, Enum.EasingStyle.Sine);
+                        local l_Start_104 = l_Model_100:FindFirstChild("Start");
+                        local l_End_102 = l_Model_100:FindFirstChild("End");
+                        local l_Stay_99 = l_v4362_0.Stay;
+                        local l_Anchor_100 = l_v4362_0.Anchor;
+                        local v4502 = l_v4362_0.EndT or 1;
+                        local l_Del_99 = l_v4362_0.Del;
+                        local l_Skip_99 = l_v4362_0.Skip;
+                        if l_Start_104 and l_End_102 then
+                            l_Model_100.PrimaryPart = l_Start_104;
+                            if not l_Skip_99 then
+                                for _, v4506 in pairs(l_Model_100:GetChildren()) do
+                                    if v4506:IsA("BasePart") then
+                                        v4506.CanCollide = false;
+                                        v4506.Anchored = true;
+                                    end;
+                                end;
+                            end;
+                            if l_Anchor_100 then
+                                l_Model_100:SetPrimaryPartCFrame(l_Anchor_100);
+                            end;
+                            if l_v4362_0.T then
+                                l_Start_104.Transparency = l_v4362_0.T;
+                            end;
+                            l_End_102.Transparency = 1;
+                            l_Model_100.Parent = workspace.Thrown;
+                            local l_Decal_199 = l_Start_104:FindFirstChildOfClass("Decal");
+                            local l_SpecialMesh_200 = l_Start_104:FindFirstChildOfClass("SpecialMesh");
+                            local l_SpecialMesh_201 = l_End_102:FindFirstChildOfClass("SpecialMesh");
+                            local l_Decal_200 = l_End_102:FindFirstChildOfClass("Decal");
+                            if l_Decal_200 and not l_Skip_99 then
+                                l_Decal_200.Transparency = 1;
+                            end;
+                            local v4511 = nil;
+                            if l_Del_99 then
+                                game:GetService("TweenService"):Create(l_Start_104, v4497, {
+                                    Size = l_End_102.Size, 
+                                    CFrame = l_End_102.CFrame
+                                }):Play();
+                                task.delay(l_Del_99, function()
+                                    v4511 = game:GetService("TweenService"):Create(l_Start_104, v4497, {
+                                        Transparency = v4502
+                                    });
+                                    v4511:Play();
+                                    if l_Decal_199 then
+                                        for _, v4513 in pairs(l_Start_104:GetChildren()) do
+                                            if v4513:IsA("Decal") then
+                                                game:GetService("TweenService"):Create(v4513, v4497, {
+                                                    Transparency = v4502
+                                                }):Play();
+                                            end;
+                                        end;
+                                    end;
+                                    if l_SpecialMesh_200 then
+                                        v4511 = game:GetService("TweenService"):Create(l_SpecialMesh_200, v4497, {
+                                            Scale = l_SpecialMesh_201.Scale
+                                        }):Play();
+                                    end;
+                                end);
+                            else
+                                if l_SpecialMesh_200 then
+                                    game:GetService("TweenService"):Create(l_SpecialMesh_200, v4497, {
+                                        Scale = l_SpecialMesh_201.Scale
+                                    }):Play();
+                                end;
+                                if l_Decal_199 then
+                                    for _, v4515 in pairs(l_Start_104:GetChildren()) do
+                                        if v4515:IsA("Decal") then
+                                            game:GetService("TweenService"):Create(v4515, v4497, {
+                                                Transparency = v4502
+                                            }):Play();
+                                        end;
+                                    end;
+                                    v4511 = game:GetService("TweenService"):Create(l_Start_104, v4497, {
+                                        Size = l_End_102.Size, 
+                                        CFrame = l_End_102.CFrame
+                                    });
+                                    v4511:Play();
+                                else
+                                    v4511 = game:GetService("TweenService"):Create(l_Start_104, v4497, {
+                                        Size = l_End_102.Size, 
+                                        Transparency = v4502, 
+                                        CFrame = l_End_102.CFrame
+                                    });
+                                    v4511:Play();
+                                end;
+                            end;
+                            if not l_Stay_99 then
+                                if l_Del_99 then
+                                    task.wait(l_Del_99 + 0.1);
+                                end;
+                                v4511.Completed:Connect(function()
+                                    l_Model_100:Destroy();
+                                end);
+                            end;
+                            return ;
+                        else
+                            warn("NO START OR END");
+                            return ;
+                        end;
+                    end);
+                    v4362 = v819;
+                    v4384 = {
+                        FX = v4016.erm
+                    };
+                    v4450, v4472, v4494 = l_char_11.HumanoidRootPart.CFrame:ToOrientation();
+                    v4384.Anchor = CFrame.new(l_char_11.Torso.Position) * CFrame.Angles(0, v4472, 0) * CFrame.new(0, 2, 0);
+                    v4384.Maid = v4017._maid;
+                    v4362 = v4362(v4384);
+                    v4362:ScaleTo(0.7);
+                    v833(v4362);
+                    v4384 = v819;
+                    v4406 = {
+                        FX = v4016.Beams, 
+                        Maid = v4017._maid
+                    };
+                    local v4516, v4517;
+                    v4494, v4516, v4517 = l_char_11.HumanoidRootPart.CFrame:ToOrientation();
+                    v4406.Anchor = CFrame.new(l_char_11.Torso.Position) * CFrame.Angles(0, v4516, 0) * CFrame.new(0, -6, -2) * CFrame.Angles(1.5707963267948966, 0, 0);
+                    v4384 = v4384(v4406);
+                    v4406 = v4017._maid:give(Instance.new("NumberValue"));
+                    v4017._maid:giveTask(v4406.Changed:Connect(function()
+                        v4384:ScaleTo(v4406.Value);
+                    end));
+                    v4406.Value = 1;
+                    l_TweenService_8:Create(v4406, TweenInfo.new(0.75, Enum.EasingStyle.Sine), {
+                        Value = 3
+                    }):Play();
+                    l_TweenService_8:Create(v4384.PrimaryPart, TweenInfo.new(1.5, Enum.EasingStyle.Sine), {
+                        CFrame = v4384.PrimaryPart.CFrame * CFrame.Angles(0, 0, 0.4363323129985824)
+                    }):Play();
+                    for _, v4519 in pairs(v4384:GetDescendants()) do
+                        if v4519.Name == "A1" then
+                            l_TweenService_8:Create(v4519, TweenInfo.new(0.2, Enum.EasingStyle.Sine), {
+                                CFrame = v4519.CFrame * CFrame.new(0, 10, 10)
+                            }):Play();
+                        elseif v4519:IsA("Beam") then
+                            v4519.TextureSpeed = v4519.TextureSpeed * 0.5;
+                            v774(v4519, {
+                                Time = 0.75, 
+                                EasingStyle = "Sine", 
+                                Goal = {
+                                    TextureSpeed = 0.3, 
+                                    Width0 = 10, 
+                                    Width1 = 10, 
+                                    Transparency = NumberSequence.new({
+                                        NumberSequenceKeypoint.new(0, 1), 
+                                        NumberSequenceKeypoint.new(1, 1)
+                                    })
+                                }
+                            });
+                            game.Debris:AddItem(v4519, 0.75);
+                        end;
+                    end;
+                    return ;
+                end;
+            end;
+            if v898.second then
+                task.spawn(v4271);
+                task.delay(1.2, v4520);
+            else
+                task.spawn(v4187);
+            end;
+        end;
+        
+        
+        
