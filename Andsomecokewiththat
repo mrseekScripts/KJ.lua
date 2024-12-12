@@ -1,0 +1,65 @@
+local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:WaitForChild("Humanoid")
+
+    local character = game.Players.LocalPlayer.Character
+    local humanoid = character:FindFirstChildOfClass("Humanoid")
+	local root = character:FindFirstChild("HumanoidRootPart")
+	local tp = shared.sfx({
+        SoundId = "rbxassetid://17149593018",
+        Parent = character.Torso,
+        Volume = 3
+    })
+    tp:Resume()
+    local fall = shared.sfx({
+        SoundId = "rbxassetid://17141392513",
+        Parent = character.Torso,
+        Volume = 3
+    })
+    fall:Resume()
+	local animation = Instance.new("Animation")
+    animation.AnimationId = "rbxassetid://17141153099"
+
+	local freeze = Instance.new("Accessory", character)
+	freeze.Name = "Freeze"
+	freeze:SetAttribute("NoStop", true)
+
+	local AbsoluteImmortal = Instance.new("Accessory", character)
+	AbsoluteImmortal.Name = "AbsoluteImmortal"
+
+	local track = humanoid:LoadAnimation(animation)
+        animation.AnimationId = "rbxassetid://0"
+
+	track:Play()
+track:GetMarkerReachedSignal("Voiceline"):Connect(function()
+		local BAKUDAN = shared.sfx({
+            SoundId = "rbxassetid://17141392676",
+            Parent = character.Torso,
+            Volume = 3
+        })
+        BAKUDAN:Resume()
+	end)
+
+	track:GetMarkerReachedSignal("ChargingSound"):Connect(function()
+		local IMMACHARGEMAHLASER = shared.sfx({
+            SoundId = "rbxassetid://17141392976",
+            Parent = character.Torso,
+            Volume = 3
+        })
+        IMMACHARGEMAHLASER:Resume()
+	end)
+
+	track:GetMarkerReachedSignal("FinalBoarExplosion"):Connect(function()
+		local BOOM = shared.sfx({
+            SoundId = "rbxassetid://17141392854",
+            Parent = character.Torso,
+            Volume = 3
+                    })
+                    BOOM:Resume()
+    end)
+	shared.repfire({Effect = "Stoic Bomb",ogrootcfr = root.CFrame, char = character, hit = character, humanoid = humanoid, id = 0, Seed = math.random(4.5, 12.5)})
+
+	track.Stopped:Connect(function()
+		freeze:Destroy()
+		AbsoluteImmortal:Destroy()
+	end)
