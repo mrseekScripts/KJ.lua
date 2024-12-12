@@ -1,0 +1,61 @@
+local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:WaitForChild("Humanoid")
+
+    local sound = Instance.new("Sound", game:GetService("SoundService"))
+            sound.Looped = false
+            sound.SoundId = "rbxassetid://18460863844"
+            sound.Playing = true
+            sound.Volume = 3
+            wait(0.1)
+spawn(function()
+            wait(7)
+            local SoundTP = Instance.new("Sound", game:GetService("SoundService"))
+            SoundTP.SoundId = "rbxassetid://18461671633"
+            SoundTP.Playing = true 
+            SoundTP.Volume = 2
+            wait(1)
+            shared.repfire({
+                ["Effect"] = "Five Season Camera",
+                ["char"] = game.Players.LocalPlayer.Character
+            })
+        end)
+        spawn(function()
+            local sound2 = Instance.new("Sound", game:GetService("SoundService"))
+            sound2.Looped = false
+            sound2.SoundId = "rbxassetid://18460952794"
+            sound2.Volume = 0.7
+            sound2:Play()
+            wait(3.4)
+            local Audio_first_part_voiceline = Instance.new("Sound")
+           Audio_first_part_voiceline.SoundId = "rbxassetid://18460893321"
+           Audio_first_part_voiceline.Parent = game.Players.LocalPlayer.Character.Head
+		Audio_first_part_voiceline.Volume = 1.5
+		Audio_first_part_voiceline:Play()
+		
+            
+            wait(10)
+shared.repfire({
+                ["Effect"] = "Five Season Atk",
+                ["char"] = game.Players.LocalPlayer.Character
+            })
+local Anim = Instance.new("Animation")
+Anim.AnimationId = "rbxassetid://18462894593"
+local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
+Anim.AnimationId = "rbxassetid://0"
+k:Play()
+            local bringsound = Instance.new("Sound", game.Players.LocalPlayer.Character)
+            bringsound.SoundId = "rbxassetid://18461820786"
+            bringsound.Playing = true
+            bringsound.Volume = 2
+        end)
+local Anim = Instance.new("Animation")
+Anim.AnimationId = "rbxassetid://18462892217"
+local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
+Anim.AnimationId = "rbxassetid://0"
+k:Play()
+
+shared.repfire({
+                ["Effect"] = "Five Season Startup",
+                ["char"] = game.Players.LocalPlayer.Character
+            })
