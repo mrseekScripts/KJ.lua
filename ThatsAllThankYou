@@ -1,0 +1,305 @@
+local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:WaitForChild("Humanoid")
+    local Debris = game:GetService("Debris")
+    local Players = game:GetService("Players")
+    local ReplicatedStorage = game:GetService("ReplicatedStorage")
+    
+    local Replication = ReplicatedStorage.Replication
+    local character = game.Players.LocalPlayer.Character
+        local PrimaryPart = character.PrimaryPart
+        local Humanoid = character.Humanoid
+        local player = Players:GetPlayerFromCharacter(character)
+    
+        local animation3 = Instance.new("Animation")
+        animation3.AnimationId = "rbxassetid://17354976067"
+        local track3 = Humanoid:LoadAnimation(animation3)
+        animation3.AnimationId = "rbxassetid://0"
+        track3:Play()
+    local RUNNN = shared.sfx({
+        SoundId = "rbxassetid://17429233290",
+        Parent = character.Torso,
+        Volume = 1
+    })
+    local RUNNNMUSIC = shared.sfx({
+        SoundId = "rbxassetid://17356346310",
+        Parent = character.Torso,
+        Volume = 1
+    })
+    RUNNN:Resume()
+    RUNNNMUSIC:Resume()
+    
+        local Freeze = Instance.new("Accessory", character)
+        Freeze.Name = "Freeze"
+        Freeze:SetAttribute("NoStop", true)
+    
+        
+        
+        track3:GetMarkerReachedSignal("End"):Connect(function()
+            Freeze:Destroy()
+        end)
+    
+        track3:GetMarkerReachedSignal("SpeedLinesStart"):Connect(function()
+            
+            
+    local Player = game:GetService("Players")
+    local l_LocalPlayer_0 = Player.LocalPlayer
+    local l_char_24 = l_LocalPlayer_0.Character 
+    local HRP = l_char_24.PrimaryPart
+    
+    local Speed = 1000
+    
+    spawn(function()
+        local TS = game:GetService('TweenService')
+        local speedv = Instance.new('IntValue', script)
+        game.Debris:AddItem(speedv, 0.5)
+        speedv.Value = 300 * 1.1
+        TS:Create(speedv, TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Value = 600 / 3}):Play()
+    
+        task.spawn(function()
+            task.wait(0.5)
+            TS:Create(speedv, TweenInfo.new(2), {Value = 1700 / 3}):Play()
+        end)
+    
+        speedv:GetPropertyChangedSignal("Value"):Connect(function()
+            Speed = speedv.Value
+        end)
+    end)
+    local BodyVelocity = Instance.new("BodyVelocity", HRP)
+    BodyVelocity.Name = "KJBV"
+    BodyVelocity.MaxForce = Vector3.new(400000, 0, 400000)
+    BodyVelocity.Velocity = HRP.CFrame.LookVector * Speed
+    
+    local BodyGyro = Instance.new("BodyGyro", HRP)
+    BodyGyro.MaxTorque = Vector3.new(400000, 400000, 400000)
+    BodyGyro.CFrame = HRP.CFrame
+    
+    game.Debris:AddItem(BodyVelocity, 5)
+    game.Debris:AddItem(BodyGyro, 5)
+    
+    BodyVelocity.Destroying:Connect(function()
+        Speed = 0
+    end)
+    
+    local IsDestroyed
+    
+    task.delay(4, function()
+        Speed = 120
+        repeat
+            wait(0.1)
+            if Speed >= 12 then
+                Speed -= 12
+            end
+        until IsDestroyed
+    end)
+    
+    local Attach
+    Attach = game:GetService("RunService").RenderStepped:Connect(function()
+        if not IsDestroyed then
+            BodyVelocity.Velocity = HRP.CFrame.LookVector * Speed
+        elseif IsDestroyed then
+            Attach:Disconnect()
+            Attach = nil
+        end
+    end)
+            shared.repfire({
+                Effect = "DropKickStartUpSpeedLines",
+                char = character,
+                Bind = character
+            })
+    
+            local Hitbox = Instance.new("Part")
+            Hitbox.Size = Vector3.new(5, 5, 5)
+            Hitbox.CanCollide = false
+            Hitbox.Transparency = 1
+            Hitbox.Anchored = false
+            Hitbox.Parent = workspace.Thrown
+            Hitbox.Massless = true
+            local weld = Instance.new("Weld", workspace.Thrown)
+            weld.Part0 = Hitbox
+            weld.Part1 = character.Torso
+            Debris:AddItem(Hitbox, 5)
+            Debris:AddItem(weld, 5)
+            track3:GetMarkerReachedSignal("EndHitbox"):Connect(function()
+                Hitbox:Destroy()
+            end)
+            local debounce = false
+    
+            local function onTouch(hit)
+                local startTime = tick()
+                local Hittedfake = hit.Parent
+                local Hitted = Hittedfake:Clone()
+                if debounce or not Hitted or Hitted == character then
+                    return
+                end
+                if not Hitted:FindFirstChild("Humanoid") then
+                    return
+                end
+                if Hitted:GetAttribute("Ragdolled",true) then
+                    return
+                end
+                if Hitted:FindFirstChild("AbsoluteImmortal") then
+                    return
+                end
+    
+    Hitted.Parent = workspace.Live
+    Hitted.HumanoidRootPart.CFrame = Hittedfake.HumanoidRootPart.CFrame
+                local HPrimaryPart = Hitted.PrimaryPart
+                local HHumanoid = Hitted.Humanoid
+    
+                debounce = true
+                Hitbox:Destroy()
+    
+                local Freeze2 = Instance.new("Accessory", Hitted)
+                Freeze2.Name = "Freeze"
+                Freeze2:SetAttribute("NoStop", true)
+    spawn(function()
+                local HELP = shared.sfx({
+                    SoundId = "rbxassetid://17363377920",
+                    Parent = workspace,
+                    Volume = 2
+                })
+                HELP:Resume()
+                wait(0.05)
+                local HIT = shared.sfx({
+                    SoundId = "rbxassetid://17363374089",
+                    Parent = workspace,
+                    Volume = 2
+                })
+                HIT:Resume()
+            end)
+                
+                
+                local CameraPart = Instance.new("Part")
+                CameraPart.Transparency = 1
+                CameraPart.CanCollide = false
+                CameraPart.Massless = true
+                CameraPart.Name = "Cam"
+                CameraPart.Parent = character
+    
+                -- Attach the CameraPart to the Humano12idRootPart using a Motor6D
+                local motor6D = Instance.new("Motor6D")
+                motor6D.Part0 = character.HumanoidRootPart
+                motor6D.Part1 = CameraPart
+                motor6D.Parent = CameraPart
+                RUNNN:Stop()
+    RUNNNMUSIC:Stop()
+   
+                shared.repfire({
+                    Effect = "DropkickWholeMoveSequence",
+                    char = character,
+                    hit = Hitted,
+                    Bind = Hitted,
+                    humanoid = Humanoid,
+                    ogrootcfr = PrimaryPart.CFrame,
+                    CameraPart = CameraPart
+                })
+    
+                HPrimaryPart.CFrame = PrimaryPart.CFrame * CFrame.new(0, 0, -10) * CFrame.Angles(0, math.rad(180), 0)
+    
+                for _, v in pairs(Humanoid:GetPlayingAnimationTracks()) do
+                    v:Stop()
+                end
+    
+                for _, v in pairs(Hitted.Humanoid:GetPlayingAnimationTracks()) do
+                    v:Stop()
+                end
+    
+                PrimaryPart.Anchored = true
+                Hitted.PrimaryPart.Anchored = true
+    
+                local animation = Instance.new("Animation")
+                animation.AnimationId = "rbxassetid://17420452843"
+                local animation2 = Instance.new("Animation")
+                animation2.AnimationId = "rbxassetid://17363256069"
+                local track = Humanoid:LoadAnimation(animation)
+                animation.AnimationId = "rbxassetid://0"
+                local track2 = Hitted.Humanoid:LoadAnimation(animation2)
+                 animation2.AnimationId = "rbxassetid://0"
+                track:Play()
+                track2:Play()
+    
+                track3:Stop()
+    
+                track:GetMarkerReachedSignal("StartCameraAmbience"):Connect(function()					
+                    local DASH = shared.sfx({
+                        SoundId = "rbxassetid://17419337758",
+                        Parent = workspace,
+                        Volume = 6
+                    })
+                    DASH:Resume()
+                    wait(0.15)
+                    
+                    shared.repfire({
+                        Effect = "kjclientstuff2",
+                        char = character,
+                        Blacklist = {character,Hitted}
+                    })
+    
+                    shared.repfire({
+                        Effect = "kjclientstuff",
+                        char = character,
+                        Blacklist = { character, Hitted }
+                    })
+                end)
+    
+                track:GetMarkerReachedSignal("Fling"):Connect(function()
+                    Hitted.Humanoid.Health = 0
+            
+    
+                    
+                    
+                    wait(0.1)
+                    local BodyV = Instance.new("BodyVelocity", HPrimaryPart)
+                    BodyV.MaxForce = Vector3.new(1, 1, 1) * 100_000_000
+                    BodyV.Velocity = HPrimaryPart.CFrame.LookVector * -300 + HPrimaryPart.CFrame.UpVector * 80
+                    Debris:AddItem(BodyV, 0.5)
+                    
+                    local Ragdoll = Instance.new("Accessory")
+                    Ragdoll.Parent = Hitted
+                    Ragdoll.Name = "Ragdoll"
+                    Debris:AddItem(Ragdoll, 3)
+                    wait(4)
+                    Hitted:Destroy()
+                end)
+    
+                track:GetMarkerReachedSignal("KickTp"):Connect(function()
+                    shared.repfire({
+                        Effect = "Camshake", 
+                        Intensity = 5
+                    })
+                    
+                    HPrimaryPart.CFrame = PrimaryPart.CFrame
+    
+                    player:SetAttribute("Ultimate", 100)
+    
+                    
+    
+                    if character:FindFirstChild("HideUlt") then
+                        character.HideUlt:Destroy()
+                    end
+    
+                    PrimaryPart.Anchored = false
+                    Hitted.PrimaryPart.Anchored = false
+                    character:SetAttribute("UsingUltimate", false)
+                    Freeze:Destroy()
+                    CameraPart:Destroy()
+                end)
+    
+                task.delay(0.1, function()
+                    debounce = false
+                end)
+            end
+    
+            Hitbox.Touched:Connect(onTouch)
+    
+            local region = Region3.new(Hitbox.Position - Hitbox.Size, Hitbox.Position + Hitbox.Size)
+            local partsInRegion = workspace:FindPartsInRegion3(region, nil, math.huge)
+            for _, part in ipairs(partsInRegion) do
+                if part.Parent:FindFirstChild("Humanoid") and part.Parent ~= character then
+                    onTouch(part)
+                end
+            end
+    
+            Hitbox.Touched:Wait()
+        end)
