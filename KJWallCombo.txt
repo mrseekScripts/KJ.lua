@@ -1,0 +1,661 @@
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local animationId = "15955393872" -- Replace with your animation ID
+local function o(a)
+if a.Animation.AnimationId == "rbxassetid://" .. animationId then
+task.spawn(function()
+local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:WaitForChild("Humanoid")
+    local Debris = game:GetService("Debris")
+    local Players = game:GetService("Players")
+    local ReplicatedStorage = game:GetService("ReplicatedStorage")
+    
+    local Thrown = workspace.Thrown
+    local Replication = ReplicatedStorage.Replication
+    local character = game.Players.LocalPlayer.Character
+        local PrimaryPart = character.PrimaryPart
+        local Humanoid = character.Humanoid
+    
+        local FirstHitTargets = {}
+            local HitboxSize = Vector3.new(2.5, 5, 6)
+            local HitPos = PrimaryPart.CFrame * CFrame.new(0, 0, -4)
+    
+            local Hitbox = Instance.new("Part", Thrown)
+            Hitbox.CFrame = HitPos
+            Hitbox.Size = HitboxSize
+            Hitbox.CanTouch = true
+            Hitbox.CanCollide = false
+            Hitbox.CanQuery = false
+            Hitbox.Transparency = 1
+            Hitbox.Touched:Connect(function(hitPart)
+                local hitParent = hitPart.Parent
+                if hitParent and hitParent:FindFirstChild("Humanoid") and hitParent ~= character and not FirstHitTargets[hitParent] then
+                    if hitParent:FindFirstChild("AbsoluteImmortal") then
+                        return
+                    end
+                    if not hitParent:FindFirstChild("Humanoid") then
+                        return
+                    end
+    
+                    FirstHitTargets[hitParent] = true
+                    local HPrimaryPart = hitParent.PrimaryPart
+                    local HHumanoid = hitParent.Humanoid
+                    local an = Instance.new("Animation")
+                    an.AnimationId = "rbxassetid://18447915110"
+                    local k = HHumanoid:LoadAnimation(an)
+                    k:Play()
+                    for _, ds in ipairs(HHumanoid:GetPlayingAnimationTracks()) do
+                    if ds ~= k then
+                    ds:Stop()
+                    end
+                    end
+                    Debris:AddItem(Hitbox, 1)
+               end
+        end)
+end)
+local k = Instance.new("Sound", game.Players.LocalPlayer.Character.Torso)
+k.Name = "ku"
+k.SoundId = "rbxassetid://18443048724"
+k.Volume = 5
+k:Play()
+
+local r = game:GetService("ReplicatedStorage")
+local p = game:GetService("Players").LocalPlayer
+
+local function m()
+    local res = r:FindFirstChild("Resources")
+    if not res then return end
+
+    local k = res:FindFirstChild("KJEffects")
+    if not k then return end
+
+    local j = k:FindFirstChild("KJWallCombo")
+    if not j then return end
+
+    local s = j:FindFirstChild("slam")
+    if not s or not s:IsA("BasePart") then return end
+
+    local c = s:Clone()
+    local playerPos = p.Character.HumanoidRootPart.Position
+    local offset = p.Character.HumanoidRootPart.CFrame.LookVector * 3
+    c.CFrame = CFrame.new(playerPos + offset, playerPos) -- Position and rotate part to look at player
+    c.Parent = workspace
+    
+    for _, a in pairs(c:GetDescendants()) do
+        if a:IsA("Attachment") then
+            for _, v in pairs(a:GetDescendants()) do
+                if v:IsA("ParticleEmitter") then
+                    v:Emit(4)
+                end
+            end
+        end
+    end
+end
+
+m()
+
+local p = game.Players.LocalPlayer
+local Humanoid = p.Character:WaitForChild("Humanoid")
+
+local AnimAnim = Instance.new("Animation")
+AnimAnim.AnimationId = "rbxassetid://18447913645"
+local Anim = Humanoid:LoadAnimation(AnimAnim)
+AnimAnim.AnimationId = "rbxassetid://0"
+Anim:Play()
+
+
+local r = game:GetService("RunService")
+local t = game:GetService("TweenService")
+local c = workspace.CurrentCamera
+local h = game.Players.LocalPlayer.Character
+
+local function s(d)
+    if not d then return end
+
+    local o = c.CFrame
+    local e = 0
+    local con
+
+    h.Humanoid.AutoRotate = false
+    c.CameraType = Enum.CameraType.Scriptable
+
+    con = r.RenderStepped:Connect(function(dt)
+        e = e + dt * 60
+        local k = d[math.ceil(e)]
+
+        if k then
+            t:Create(c, TweenInfo.new(0.0005, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {
+                CFrame = h.HumanoidRootPart.CFrame * k.cframe,
+                FieldOfView = k.fov
+            }):Play()
+        else
+            con:Disconnect()
+            c.FieldOfView = 70
+            h.Humanoid.AutoRotate = true
+            c.CameraType = Enum.CameraType.Custom
+            c.CFrame = o
+        end
+    end)
+end
+
+local m = require(game.ReplicatedStorage.Cutscenes.KJ)
+
+local d = m
+if d then
+    s(d)
+end
+
+local V_123 = game.Players.LocalPlayer
+local V_456 = V_123.Character or V_123.CharacterAdded:Wait()
+local V_789 = V_456:WaitForChild("HumanoidRootPart")
+
+task.delay(1.4, function()
+    
+    local ScreenGui = Instance.new("ScreenGui")
+    ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+    
+    local ImpactFrames = Instance.new("Folder")
+    ImpactFrames.Name = "ImpactFrames"
+    ImpactFrames.Parent = ScreenGui
+    
+    local imageIds = {
+        "rbxassetid://18439449672",
+        "rbxassetid://18439449322",
+        "rbxassetid://18439448827",
+        "rbxassetid://18439449322",
+        "rbxassetid://18439448569",
+        "rbxassetid://18439448279",
+        "rbxassetid://18439448279",
+        "rbxassetid://18439447816",
+        "rbxassetid://18439447528",
+        "rbxassetid://18439447248",
+        "rbxassetid://18439446937",
+        "rbxassetid://18439446621",
+        "rbxassetid://18439446312",
+        "rbxassetid://18439445892",
+        "rbxassetid://18439445557",
+        "rbxassetid://18439445557",
+        "rbxassetid://18439444854",
+        "rbxassetid://18439444197",
+        "rbxassetid://18439443641",
+        "rbxassetid://18439443091",
+        "rbxassetid://18439442732",
+        "rbxassetid://18439442280",
+        "rbxassetid://18439441717",
+        "rbxassetid://18439441301",
+        "rbxassetid://18439439276",
+        "rbxassetid://18439438892",
+        "rbxassetid://18439438588",
+        "rbxassetid://18439438325",
+        "rbxassetid://18439437897",
+        "rbxassetid://18439437436",
+        "rbxassetid://18439436945",
+        "rbxassetid://18439436647",
+        "rbxassetid://18439418311",
+        "rbxassetid://18439436436",
+        "rbxassetid://18439436154",
+        "rbxassetid://18439435769",
+        "rbxassetid://18439435367",
+        "rbxassetid://18439435078",
+        "rbxassetid://18439434634",
+        "rbxassetid://18439434365",
+        "rbxassetid://18439433887",
+        "rbxassetid://18439433322",
+        "rbxassetid://18439432946",
+        "rbxassetid://18439432512",
+        "rbxassetid://18439432070",
+        "rbxassetid://18439431561",
+        "rbxassetid://18439431285",
+        "rbxassetid://18439430917",
+        "rbxassetid://18439430536",
+        "rbxassetid://18439430081",
+        "rbxassetid://18439429154",
+        "rbxassetid://18439428804",
+        "rbxassetid://18439428359",
+        "rbxassetid://18443661388",
+        "rbxassetid://18439426773",
+        "rbxassetid://18439426388",
+        "rbxassetid://18439425936",
+        "rbxassetid://18439425421",
+        "rbxassetid://18439424913",
+        "rbxassetid://18439424277",
+        "rbxassetid://18439423773",
+        "rbxassetid://18439423480",
+        "rbxassetid://18439423074",
+        "rbxassetid://18439422402",
+        "rbxassetid://18439422036",
+        "rbxassetid://18439421605",
+        "rbxassetid://18439421256",
+        "rbxassetid://18439420866",
+        "rbxassetid://18439420496",
+        "rbxassetid://18439420101",
+        "rbxassetid://18439419463",
+        "rbxassetid://18439418712",
+        "rbxassetid://18439418311"
+    }
+    
+    for i = 1, 73 do
+        local ImageLabel = Instance.new("ImageLabel")
+        ImageLabel.Name = i
+        ImageLabel.Size = UDim2.new(0.005, 0, 0, 0)
+        ImageLabel.Position = UDim2.new(0, 0, 0, 0)
+        ImageLabel.ImageTransparency = 0
+        ImageLabel.BackgroundTransparency = 1
+        ImageLabel.Visible = true
+        ImageLabel.Parent = ImpactFrames
+        if imageIds[i] then
+            ImageLabel.Image = imageIds[i]
+        end
+        task.wait()
+    end
+    
+    for i = 1, 73 do
+        ImpactFrames:GetChildren()[i].Size = UDim2.new(1, 0, 1, 100)
+        ImpactFrames:GetChildren()[i].Position = UDim2.new(0, 0, 0, -100)
+        task.wait(0.033)
+        ImpactFrames:GetChildren()[i].ImageTransparency = 1
+    end
+    
+    ScreenGui:Destroy()
+    
+end)
+
+
+delay(2.8, function()
+
+local r = game:GetService("ReplicatedStorage")
+local p = game:GetService("Players").LocalPlayer
+
+local function m()
+    local a = r:FindFirstChild("Resources")
+    if not a then return end
+
+    local b = a:FindFirstChild("KJEffects")
+    if not b then return end
+
+    local c = b:FindFirstChild("KJWallCombo")
+    if not c then return end
+
+    local d = c:FindFirstChild("UserAura")
+    if not d or not d:IsA("Folder") then return end
+
+    local e = p.Character:FindFirstChild("Torso")
+    if not e then return end
+
+    for _, f in pairs(d:GetChildren()) do
+        if f:IsA("ParticleEmitter") then
+            local g = f:Clone()
+            g.Parent = e
+            g.Enabled = true
+            g.Rate = 50
+            g:Emit(2)
+        end
+    end
+end
+
+m()
+
+local p = game.Players.LocalPlayer
+local c = p.Character
+local h = c:FindFirstChild("HumanoidRootPart")
+
+local f = game.ReplicatedStorage.Resources.KJEffects.KJWallCombo.hold
+local g = f:Clone()
+g.Parent = workspace
+g.CFrame = h.CFrame * CFrame.new(0, 0, -1.9)
+
+for _, a in ipairs(g:GetDescendants()) do
+    if a:IsA("Attachment") then
+        for _, b in ipairs(a:GetChildren()) do
+            if b:IsA("ParticleEmitter") then
+                b.Enabled = true
+            end
+        end
+    end
+end
+
+local p = game.Players.LocalPlayer
+local c = p.Character
+local f = game.ReplicatedStorage.Resources.KJEffects.KJWallCombo.feet
+local g = f:Clone()
+g.Parent = workspace
+
+local lLeg = c:FindFirstChild("Left Leg")
+if lLeg then
+    g.CFrame = lLeg.CFrame * CFrame.Angles(math.rad(-90), 0, 0)
+end
+
+for _, a in ipairs(g:GetDescendants()) do
+    if a:IsA("Attachment") then
+        for _, b in ipairs(a:GetChildren()) do
+            if b:IsA("ParticleEmitter") then
+                b:Emit(2)
+            end
+        end
+    end
+end
+
+delay(0.6, function()
+local p = game.Players.LocalPlayer
+local c = p.Character or p.CharacterAdded:Wait()
+
+local function s(t)
+    for _, ch in ipairs(t:GetChildren()) do
+        if ch:IsA("ParticleEmitter") then
+            ch.Rate = 0
+        end
+    end
+end
+
+c:WaitForChild("HumanoidRootPart")
+
+local t = c:FindFirstChild("Torso")
+
+if t then
+    s(t)
+end
+
+end)
+
+end)
+
+delay(5.89, function()
+
+local p = workspace:FindFirstChild("hold")
+
+if p then
+    local aNames = {"2", "1", "Attachment"}
+    
+    for _, c in ipairs(p:GetChildren()) do
+        if c:IsA("Attachment") and table.find(aNames, c.Name) then
+            for _, d in ipairs(c:GetChildren()) do
+                if d:IsA("ParticleEmitter") then
+                    d.Rate = 0
+                elseif d:IsA("Attachment") then
+                    for _, e in ipairs(d:GetChildren()) do
+                        if e:IsA("ParticleEmitter") then
+                            e.Rate = 0
+                        end
+                    end
+                end
+            end
+        end
+    end
+end
+    
+local p = game.Players.LocalPlayer
+local c = p.Character
+local h = c:FindFirstChild("HumanoidRootPart")
+
+local function d(e)
+    local f = game.ReplicatedStorage.Resources.KJEffects.KJWallCombo[e]
+    local g = f:Clone()
+    g.Parent = workspace
+    g.CFrame = h.CFrame * CFrame.new(3, 0, 0) * CFrame.Angles(0, math.pi / 2, 0)
+    
+    for _, a in ipairs(g:GetDescendants()) do
+        if a:IsA("Attachment") then
+            for _, b in ipairs(a:GetChildren()) do
+                if b:IsA("ParticleEmitter") then
+                    b:Emit(2.8)
+                end
+            end
+        end
+    end
+end
+
+d("FinalImpact")
+d("FinalImpactHUGEignore")
+
+local k = Instance.new("Sound", game.Players.LocalPlayer.Character.Torso)
+k.Name = "KOKUSEN"
+k.SoundId = "rbxassetid://18443813318"
+k.Volume = 3
+k:Play()
+
+end)
+
+task.delay(8.04, function()
+  
+local ws = game:GetService("Workspace")
+
+local function dpm()
+    local parts = {"FinalImpact", "slam", "hold", "FinalImpactHUGEignore"}
+    for _, n in pairs(parts) do
+        local p = ws:FindFirstChild(n)
+        if p then
+            p:Destroy()
+        end
+    end
+end
+dpm()
+end)
+end
+end
+for _, d in ipairs(character.Humanoid:GetPlayingAnimationTracks()) do
+d:Stop()
+end
+character.Humanoid.AnimationPlayed:Connect(o)
+
+
+
+
+
+
+        elseif v939 == "KJ Wall Combo" then
+        local l_char_2 = v938.char;
+        local l_hit_0 = v938.hit;
+        local v1278 = {};
+        local l_KJEffects_0 = game.ReplicatedStorage.Resources.KJEffects;
+        local _, _ = v913(game.ReplicatedStorage.Resources.KJEffects, v1278, 15);
+        task.spawn(function() --[[ Line: 5424 ]]
+            local l_Thrown_0 = workspace.Thrown;
+            local l_l_char_2_0 = l_char_2;
+            local l_l_hit_0_0 = l_hit_0;
+            local l_Torso_4 = l_l_char_2_0.Torso;
+            local l_HumanoidRootPart_1 = l_l_char_2_0.HumanoidRootPart;
+            local l_HumanoidRootPart_2 = l_l_hit_0_0.HumanoidRootPart;
+            local l_KJWallCombo_0 = l_KJEffects_0.KJWallCombo;
+            task.wait(0.15);
+            local v1289 = l_KJWallCombo_0.slam:Clone();
+            table.insert(v1278, v1289);
+            v1289.CFrame = l_HumanoidRootPart_2.CFrame * CFrame.new(0, 0.7, 2.25);
+            v1289.Parent = l_Thrown_0;
+            local v1290 = workspace:Raycast(l_HumanoidRootPart_1.Position, l_HumanoidRootPart_1.CFrame.LookVector * 20, params);
+            if v1290 then
+                for _, v1292 in v1289:GetDescendants() do
+                    if v1292:GetAttribute("ChangeColor") then
+                        v1292.Color = ColorSequence.new(v1290.Instance.Color);
+                    end;
+                end;
+            end;
+            Emit(v1289, true);
+            task.wait(2.7);
+            local v1293 = l_KJWallCombo_0.feet:Clone();
+            table.insert(v1278, v1293);
+            v1293.CFrame = l_HumanoidRootPart_1.CFrame * CFrame.new(0.7870006561279297, -2.7, 1.7350006103515625) * CFrame.Angles(1.5707963267948966, 0, 0);
+            v1293.Parent = l_Thrown_0;
+            local v1294 = workspace:Raycast(l_Torso_4.CFrame.Position, Vector3.new(0, -10, 0, 0), params);
+            if v1294 then
+                for _, v1296 in v1293:GetDescendants() do
+                    if v1296:GetAttribute("ChangeColor") then
+                        v1296.Color = ColorSequence.new(v1294.Instance.Color);
+                    end;
+                end;
+            end;
+            Emit(v1293, true);
+            local v1297 = {};
+            for _, v1299 in {
+                "Head", 
+                "Torso", 
+                "Left Arm", 
+                "Right Arm", 
+                "Left Leg", 
+                "Right Leg"
+            } do
+                local l_l_l_char_2_0_FirstChild_0 = l_l_char_2_0:FindFirstChild(v1299);
+                if l_l_l_char_2_0_FirstChild_0 then
+                    for _, v1302 in l_KJWallCombo_0.UserAura:GetChildren() do
+                        local v1303 = v1302:Clone();
+                        table.insert(v1278, v1303);
+                        v1303.Parent = l_l_l_char_2_0_FirstChild_0;
+                        table.insert(v1297, v1303);
+                        task.delay(math.random(1, 10) / 100, function() --[[ Line: 5485 ]]
+                            v1303.Enabled = true;
+                        end);
+                        Emit(v1303, false);
+                    end;
+                end;
+            end;
+            local v1304 = l_KJWallCombo_0.hold:Clone();
+            table.insert(v1278, v1304);
+            v1304.CFrame = l_HumanoidRootPart_2.CFrame * CFrame.new(0, 0, 1);
+            v1304.Parent = l_Thrown_0;
+            local l_PointLight_1 = v1304.Attachment.PointLight;
+            for _, v1307 in v1304:GetDescendants() do
+                if v1307:IsA("ParticleEmitter") then
+                    v1307.Enabled = true;
+                end;
+            end;
+            task.spawn(function() --[[ Line: 5506 ]]
+                local v1308 = os.clock();
+                repeat
+                    task.wait(0.03333333333333333);
+                    v10:Create(l_PointLight_1, TweenInfo.new(0.03333333333333333), {
+                        Brightness = math.random(1, 60) * 0.1
+                    }):Play();
+                until os.clock() - v1308 > 2.8;
+                v10:Create(l_PointLight_1, TweenInfo.new(1), {
+                    Brightness = 0
+                }):Play();
+            end);
+            task.wait(2.8);
+            for _, v1310 in v1304:GetDescendants() do
+                if v1310:IsA("ParticleEmitter") then
+                    v1310.Enabled = false;
+                end;
+            end;
+            task.delay(3, v1304.Destroy, v1304);
+            task.wait(0.2);
+            local v1311 = l_KJWallCombo_0.FinalImpact:Clone();
+            table.insert(v1278, v1311);
+            v1311.CFrame = l_HumanoidRootPart_2.CFrame * CFrame.new(0, 0, 1) * CFrame.Angles(0, -1.5707963267948966, 0) * CFrame.new(0, 0, -1);
+            v1311.Parent = l_Thrown_0;
+            Emit(v1311, true);
+            local l_SpotLight_0 = v1311.Origin.SpotLight;
+            table.insert(v1278, l_SpotLight_0);
+            v10:Create(l_SpotLight_0, TweenInfo.new(0.3, Enum.EasingStyle.Cubic, Enum.EasingDirection.Out), {
+                Brightness = 35
+            }):Play();
+            task.delay(0.3, function() --[[ Line: 5544 ]]
+                v10:Create(l_SpotLight_0, TweenInfo.new(0.5), {
+                    Brightness = 0
+                }):Play();
+            end);
+            task.wait(0.4);
+            for _, v1314 in v1297 do
+                v1314.Enabled = false;
+                task.delay(v1314.Lifetime.Max, v1314.Destroy, v1314);
+            end;
+        end);
+        if l_char_2 ~= l_LocalPlayer_0.Character and l_hit_0 ~= l_LocalPlayer_0.Character then
+            return;
+        else
+            local v1315 = {};
+            for v1316 = 1, 73 do
+                local v1317 = l_KJEffects_0.Walls[v1316];
+                local l_ImageLabel_0 = Instance.new("ImageLabel");
+                l_ImageLabel_0.Image = v1317.Texture;
+                l_ImageLabel_0.BackgroundColor3 = Color3.new(1, 1, 1);
+                l_ImageLabel_0.Size = UDim2.new(0, 1, 0, 1);
+                l_ImageLabel_0.ZIndex = v1316;
+                l_ImageLabel_0.Parent = l_LocalPlayer_0.PlayerGui.MobileJunk;
+                v1315[v1316] = l_ImageLabel_0;
+            end;
+            local v1319 = 0;
+            local v1320 = nil;
+            local v1321 = 0;
+            local v1322 = KJWC or require(l_Cutscenes_0.KJ);
+            if not KJWC then
+                KJWC = v1322;
+            end;
+            local l_CurrentCamera_3 = workspace.CurrentCamera;
+            
+            local v1324 = tick();
+            local l_Character_9 = l_LocalPlayer_0.Character;
+            local v1326 = false;
+            local l_PrimaryPart_5 = l_char_2.PrimaryPart;
+            do
+                local l_v1319_0, l_v1320_0, l_v1321_0, l_v1326_0 = v1319, v1320, v1321, v1326;
+                l_v1320_0 = game:GetService("RunService").RenderStepped:Connect(function(v1332) --[[ Line: 5595 ]]
+                    local v1333 = v1332 * 60;
+                    l_v1319_0 = l_v1319_0 + v1333;
+                    local v1334 = tonumber((math.ceil(l_v1319_0)));
+                    local v1335 = v1322[v1334];
+                    if l_Character_9.Parent and v1335 and v1334 <= 358 then
+                        if l_CurrentCamera_3.CameraType ~= Enum.CameraType.Scriptable then
+                            l_CurrentCamera_3.CameraType = Enum.CameraType.Scriptable;
+                        end;
+                        if v1334 >= 175 and not l_v1326_0 then
+                            l_v1326_0 = true;
+                            task.spawn(function() --[[ Line: 5610 ]]
+                                local v1336 = nil;
+                                local v1337 = 1;
+                                local v1338 = nil;
+                                v1338 = shared.loop(function() --[[ Line: 5613 ]]
+                                    local v1339 = v1315[v1337];
+                                    if not v1339 then
+                                        for _, v1341 in pairs(v1315) do
+                                            v1341:Destroy();
+                                        end;
+                                        return v1338();
+                                    else
+                                        v1337 = v1337 + 1;
+                                        v1339.Size = UDim2.new(1, 0, 1, 0);
+                                        if v1336 then
+                                            v1336:Destroy();
+                                        end;
+                                        v1336 = v1339;
+                                        return;
+                                    end;
+                                end, 24);
+                            end);
+                        end;
+                        l_v1321_0 = l_v1321_0 + v1333;
+                        if v1335 then
+                            if tick() - v1324 > 0.7 then
+                                l_CurrentCamera_3.FieldOfView = v1335.fov;
+                            else
+                                local l_l_CurrentCamera_3_0 = l_CurrentCamera_3;
+                                local l_FieldOfView_0 = l_CurrentCamera_3.FieldOfView;
+                                local l_fov_0 = v1335.fov;
+                                local v1345 = 1 - 0.009 ^ v1332;
+                                l_l_CurrentCamera_3_0.FieldOfView = l_FieldOfView_0 + (l_fov_0 - l_FieldOfView_0) * v1345;
+                            end;
+                        end;
+                        if v1335 then
+                            if tick() - v1324 > 0.7 then
+                                l_CurrentCamera_3.CFrame = l_CurrentCamera_3.CFrame:lerp(l_PrimaryPart_5.CFrame * v1335.cframe, 1 - 9.0E-42 ^ v1332);
+                                return;
+                            else
+                                l_CurrentCamera_3.CFrame = l_CurrentCamera_3.CFrame:lerp(l_PrimaryPart_5.CFrame * v1335.cframe, 1 - 9.0E-5 ^ v1332);
+                                return;
+                            end;
+                        end;
+                    else
+                        l_v1320_0:Disconnect();
+                        
+                        l_CurrentCamera_3.CameraType = Enum.CameraType.Custom;
+                        v10:Create(l_CurrentCamera_3, TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+                            FieldOfView = 70
+                        }):Play();
+                    end;
+                end);
+            end;
+        end;
+        
+        shared.repfire({
+                ["Effect"] = "KJ Wall Combo",
+                ["char"] = game.Players.LocalPlayer.Character
+            })
